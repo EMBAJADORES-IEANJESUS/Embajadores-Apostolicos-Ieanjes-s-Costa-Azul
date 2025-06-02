@@ -163,34 +163,34 @@ body {
 
 /* Para secciones de título de página con video de fondo */
 .page-title-section.has-video-background {
-    position: relative; 
-    overflow: hidden;   
-    background: none !important; 
+    position: relative;
+    overflow: hidden;
+    background: none !important;
 }
 
-.program-hero-video { 
+.program-hero-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; 
-    z-index: 1;        
+    object-fit: cover;
+    z-index: 1;
 }
 
-.video-overlay-gradient { 
+.video-overlay-gradient {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(13, 71, 161, 0.65), rgba(25, 100, 180, 0.65)); 
-    z-index: 2; 
+    background: linear-gradient(rgba(13, 71, 161, 0.65), rgba(25, 100, 180, 0.65));
+    z-index: 2;
 }
 
-.page-title-section .container { 
-    position: relative; 
-    z-index: 3;         
+.page-title-section .container {
+    position: relative;
+    z-index: 3;
 }
 
 .welcome-bg { background: linear-gradient(rgba(29, 233, 182, 0.05), rgba(29, 233, 182, 0.05)); }
@@ -251,17 +251,17 @@ body {
 .content-section {
     padding: var(--section-padding);
 }
-.content-section h2 { 
+.content-section h2 {
     font-family: var(--font-primary);
     font-size: 36px;
     color: var(--color-primary);
     text-align: center;
     margin-bottom: 40px;
 }
-.content-section h3 { 
+.content-section h3 {
     font-family: var(--font-primary);
     font-size: 28px;
-    color: var(--color-primary); 
+    color: var(--color-primary);
     margin-bottom: 20px;
 }
 .bg-light {
@@ -473,10 +473,10 @@ body {
 /* Estilos para la videoteca */
 .video-item video {
     width: 100%;
-    height: auto; 
-    min-height: 280px; 
-    border-radius: var(--border-radius); 
-    background-color: #000; 
+    height: auto;
+    min-height: 280px;
+    border-radius: var(--border-radius);
+    background-color: #000;
 }
 .video-grid {
     display: grid;
@@ -518,39 +518,39 @@ body {
     height: auto;
     border-radius: var(--border-radius);
     box-shadow: var(--card-shadow);
-    max-height: 450px; 
+    max-height: 450px;
     object-fit: cover;
 }
 .comite-miembros {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    text-align: left; 
+    text-align: left;
 }
 .miembro-perfil {
     background-color: var(--color-white);
     padding: 20px;
     border-radius: var(--border-radius);
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    border-left: 4px solid var(--color-primary); 
+    border-left: 4px solid var(--color-primary);
 }
-.miembro-perfil h3 { 
+.miembro-perfil h3 {
     font-family: var(--font-primary);
-    font-size: 22px; 
-    color: var(--color-secondary); 
+    font-size: 22px;
+    color: var(--color-secondary);
     margin-top: 0;
     margin-bottom: 8px;
-    text-align: center; 
+    text-align: center;
 }
 .miembro-perfil .cargo {
     font-size: 16px;
     color: var(--color-dark);
     margin-bottom: 5px;
     font-weight: 700;
-    text-align: center; 
+    text-align: center;
 }
 .miembro-perfil .cargo strong {
-    color: var(--color-primary); 
+    color: var(--color-primary);
 }
 .miembro-perfil .palabras {
     font-size: 15px;
@@ -559,21 +559,21 @@ body {
     line-height: 1.6;
 }
 .miembro-perfil .palabras p {
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
 .miembro-perfil .palabras p:last-child {
     margin-bottom: 0;
 }
 .miembro-perfil .palabras blockquote.scripture-quote {
-    margin: 15px 0px; 
+    margin: 15px 0px;
     padding: 10px 15px;
-    background-color: rgba(var(--bs-primary-rgb),0.03); 
-    border-left: 3px solid var(--color-accent); 
-    color: var(--text-color); 
-    font-style: normal; 
+    background-color: rgba(var(--bs-primary-rgb),0.03);
+    border-left: 3px solid var(--color-accent);
+    color: var(--text-color);
+    font-style: normal;
 }
 .miembro-perfil .palabras blockquote.scripture-quote p {
-    font-style: italic; 
+    font-style: italic;
     margin-bottom: 5px;
 }
 .miembro-perfil .palabras blockquote.scripture-quote footer {
@@ -584,7 +584,7 @@ body {
     margin-top: 5px;
 }
 .miembro-perfil .palabras blockquote.scripture-quote footer cite {
-    font-style: normal; 
+    font-style: normal;
 }
 
 /* Footer */
@@ -616,46 +616,48 @@ body {
 
 
 /* Métodos de Contacto en Preguntas (antes Redes Sociales) */
-.social-media-contact { /* Mantengo este nombre de clase contenedor si quieres */
+.social-media-contact {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.social-media-contact p { /* Párrafo introductorio "Contáctanos..." */
+.social-media-contact p {
     font-size: 18px;
     margin-bottom: 15px;
 }
-.direct-contact-methods { /* Nuevo contenedor para los ítems de contacto */
-    /* Puedes añadir estilos aquí si quieres agruparlos de forma diferente */
-}
-.contact-method-item { /* Reemplaza a .social-link-item */
+
+.social-link-item { /* Usado en el HTML para cada item de contacto */
     font-size: 16px;
-    display: flex; 
-    align-items: center; 
-    justify-content: center; /* Centra el ícono y el texto juntos */
-    margin-bottom: 15px; 
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra el ícono y el texto juntos por defecto */
+    margin-bottom: 15px;
 }
-.contact-method-item a {
+.social-link-item a {
     color: var(--color-secondary);
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
 }
-.contact-method-item a:hover {
+.social-link-item a:hover {
     text-decoration: underline;
 }
 
-.contact-icon { /* Reemplaza a .social-icon */
-    width: 24px; 
-    height: 24px; 
-    margin-right: 10px; 
+/* REGLA CORREGIDA Y CLAVE PARA EL TAMAÑO DE ICONOS */
+.social-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    object-fit: contain; /* Asegura que la imagen se ajuste sin distorsión */
 }
 
-@media (min-width: 768px) { 
-    .direct-contact-methods { /* Ajuste para alinear a la izquierda en pantallas grandes */
+
+@media (min-width: 768px) {
+    /* Ajuste para alinear a la izquierda en pantallas grandes si el contenedor principal está centrado */
+    #contactar .social-links { /* Asumiendo que .social-links es el contenedor directo de .social-link-item */
         display: inline-block; /* Permite que el contenedor no ocupe todo el ancho si el texto principal está centrado */
-        text-align: left; 
+        text-align: left;
     }
-    .contact-method-item {
+    .social-link-item {
         justify-content: flex-start; /* Alinea ícono + texto al inicio del item */
     }
 }
@@ -684,12 +686,13 @@ body {
     .video-grid { grid-template-columns: 1fr; }
     .video-item iframe { min-height: 200px; }
 
-    .contact-method-item { /* Mantiene centrado en móviles si el contenedor general está centrado */
-        justify-content: center;
-    }
-    
+    /* En móviles, .social-link-item ya se centra por defecto si su contenedor (.social-links)
+       y el contenedor superior (#contactar .container.text-center) están centrados.
+       No se necesita regla adicional aquí para centrar .social-link-item si el contenedor
+       #contactar .container tiene text-align: center. */
+
     .comite-miembros {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
     }
 }
 
@@ -752,10 +755,10 @@ body {
         height: 50px;
         bottom: 10px;
     }
-    .recuerdos-decorative-container::before { 
+    .recuerdos-decorative-container::before {
         right: 10px;
     }
-    .recuerdos-decorative-container::after { 
+    .recuerdos-decorative-container::after {
         left: 10px;
     }
 }
