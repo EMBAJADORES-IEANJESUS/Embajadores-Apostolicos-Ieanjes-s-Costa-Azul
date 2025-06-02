@@ -973,3 +973,63 @@ body {
     .recuerdos-decorative-container::before { right: 15px; }
     .recuerdos-decorative-container::after { left: 15px; }
 }
+/* Estilos para la tarjeta de evento especial (Damas Dorcas) */
+.program-card-special-event {
+    border-left: 8px solid var(--color-accent); /* Borde izquierdo prominente con color de acento */
+    border-top: 2px solid var(--color-accent-darker);
+    border-right: 2px solid var(--color-accent-darker);
+    border-bottom: 5px solid var(--color-accent); /* Borde inferior consistente pero con color de acento */
+    box-shadow: 0 10px 35px rgba(29, 233, 182, 0.3); /* Sombra con el color de acento */
+    background-color: #f8fdfb; /* Un fondo muy sutilmente diferente, casi blanco pero con un toque de verde */
+    position: relative; /* Necesario para el pseudo-elemento de la cinta si se usa */
+    overflow: hidden; /* Para que la cinta no se salga si se usa */
+}
+
+/* Hacer que el título dentro de la tarjeta especial también use el color de acento */
+.program-card-special-event .program-card-content h3.special-title {
+    color: var(--color-accent-darker);
+    font-size: 26px; /* Un poco más grande para el título especial */
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.program-card-special-event .program-card-content .event-details p {
+    font-size: 16px; /* Ajustar tamaño de texto de detalles si es necesario */
+    line-height: 1.7;
+    margin-bottom: 10px;
+    color: var(--text-color); /* Asegurar color de texto legible */
+}
+
+.program-card-special-event .program-card-content .event-details p strong {
+    color: var(--color-primary); /* Resaltar partes importantes en los detalles */
+}
+
+/* Efecto hover mejorado para la tarjeta especial */
+.program-card-special-event:hover {
+    transform: translateY(-10px) scale(1.03); /* Mayor elevación y escala */
+    box-shadow: 0 18px 45px rgba(29, 233, 182, 0.45);
+    border-left-color: var(--color-secondary); /* Cambiar color del borde al hacer hover */
+    border-top-color: var(--color-secondary);
+    border-right-color: var(--color-secondary);
+    border-bottom-color: var(--color-secondary);
+}
+
+/* Opcional: Cinta "ESPECIAL" (Descomenta y ajusta si quieres usarla) */
+/*
+.program-card-special-event::after {
+    content: "INVITACIÓN";
+    position: absolute;
+    top: 20px;
+    right: -45px;
+    padding: 8px 40px;
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+    font-weight: bold;
+    font-size: 13px;
+    text-align: center;
+    transform: rotate(45deg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 2;
+    letter-spacing: 0.5px;
+}
+*/
