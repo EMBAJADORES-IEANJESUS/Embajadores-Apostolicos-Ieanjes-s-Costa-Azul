@@ -1,68 +1,75 @@
-/* Descomenta la siguiente línea si quieres usar Bootstrap.
-   Ten en cuenta que puede afectar tus estilos existentes. */
-/* @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css'); */
+/* Importación de Bootstrap (del nuevo CSS) */
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');
 
-/* Tus variables de color y fuentes originales.
-   Podemos ajustarlas si quieres adoptar los colores del nuevo estilo.
-   Por ahora, mantendremos las tuyas para consistencia con tu diseño actual. */
-:root {
-    --font-primary: 'Playfair Display', serif; /* Fuente del nuevo estilo para títulos si se desea */
-    --font-secondary: 'Montserrat', sans-serif; /* Fuente principal, coincide con el nuevo estilo */
-    --color-primary: #0D47A1; /* Tu azul oscuro profundo */
-    /* --color-primary-new: #23398b; */ /* Azul del nuevo estilo, si quieres cambiar */
-    --color-secondary: #FF6F00; /* Tu naranja ámbar vibrante */
-    --color-accent: #1DE9B6; /* Tu verde menta brillante */
-    --color-dark: #263238; /* Tu gris azulado oscuro (texto principal) */
-    /* --color-text-new: #3c3c3b; */ /* Color de texto del nuevo estilo */
-    --color-light: #ECEFF1; /* Tu gris muy claro (fondos alternos) */
-    /* --color-background-new: #f7f6f5; */ /* Color de fondo del nuevo estilo */
-    --color-white: #FFFFFF;
-    --text-color: var(--color-dark);
-    --line-height: 1.7;
-    --section-padding: 60px 0;
-    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra de tarjeta similar al nuevo estilo */
-    --border-radius: 8px;
+/* Definición de fuentes (del nuevo CSS, ajusta rutas si es necesario) */
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url('assets/fonts/MyriadPro-Regular.woff2') format('woff2'), /* DEBES TENER ESTA FUENTE O CAMBIAR LA RUTA */
+         url('assets/fonts/MyriadPro-Regular.ttf') format('truetype'); /* DEBES TENER ESTA FUENTE O CAMBIAR LA RUTA */
+    font-weight: normal;
+    font-style: normal;
 }
 
-/* Importación de tus Google Fonts originales */
+/* Fuentes de tu CSS original (Playfair Display) - Puedes decidir cuál mantener o cómo combinarlas */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700;900&display=swap');
 
-/* Estilos globales del body */
+/* Variables de color de tu CSS original (se pueden reemplazar o integrar con los nuevos colores) */
+:root {
+    --font-primary-original: 'Playfair Display', serif; /* Tu Playfair */
+    --font-secondary-original: 'Montserrat', sans-serif; /* Tu Montserrat */
+    --color-primary-original: #0D47A1; /* Tu Azul Oscuro Profundo */
+    --color-secondary-original: #FF6F00; /* Tu Naranja Ámbar Vibrante */
+    --color-accent-original: #1DE9B6; /* Tu Verde Menta Brillante */
+    --color-dark-original: #263238; /* Tu Gris Azulado Oscuro */
+    --color-light-original: #ECEFF1; /* Tu Gris Muy Claro */
+    --color-white-original: #FFFFFF;
+    --text-color-original: var(--color-dark-original);
+    --line-height-original: 1.7;
+    --section-padding-original: 60px 0;
+    --card-shadow-original: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --border-radius-original: 8px;
+
+    /* Nuevos colores primarios del CSS proporcionado */
+    --ea-primary-blue: #23398b;
+    --ea-light-bg: #f7f6f5;
+    --ea-dark-text: #3c3c3b;
+}
+
 body {
     padding-right: 0 !important; /* Del nuevo CSS */
     margin: 0;
-    font-family: var(--font-secondary); /* Usando Montserrat como en ambos */
-    color: var(--text-color);
-    background-color: var(--color-white); /* O var(--color-background-new) si prefieres */
-    line-height: var(--line-height);
+    font-family: 'Montserrat', sans-serif !important; /* Prioridad a Montserrat del nuevo CSS */
+    color: var(--ea-dark-text); /* Color de texto principal del nuevo CSS */
+    background-color: var(--color-white-original); /* Fondo general blanco, puedes cambiar a --ea-light-bg si prefieres */
+    line-height: var(--line-height-original);
     overflow-x: hidden;
 }
 
 .container {
     width: 90%;
-    max-width: 1100px;
+    max-width: 1100px; /* Mantienes tu max-width */
     margin: 0 auto;
     padding: 0 15px;
 }
 
-/* Header adaptado */
-header.main-header { /* Tu clase de header */
-    background-color: var(--color-white); /* O var(--color-background-new) #f7f6f5 */
-    padding: 0; /* Bootstrap maneja padding en .navbar, ajustamos para tu estructura */
-    position: sticky; /* Era fixed en el nuevo, sticky es mejor para tu layout */
+/* Header y Navbar adaptados */
+/* 'header' tag del nuevo CSS aplicado a tu '.main-header' */
+.main-header {
+    background-color: var(--ea-light-bg); /* #f7f6f5 */
+    position: sticky; /* Cambiado de 'fixed' a 'sticky' para compatibilidad con tu diseño original */
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
-    /* height: 87px; */ /* Altura fija del nuevo estilo, puede ser restrictiva. La quito por ahora. */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra del nuevo estilo */
+    /* height: 87px; /* Puedes descomentar si necesitas una altura fija, tu diseño original es adaptable */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra del .navbar del nuevo CSS */
 }
 
-header.main-header .container {
+.main-header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0; /* Padding que tenías, similar al .navbar del nuevo */
+    padding: 10px 0; /* Ajuste de padding para el contenido del header */
 }
 
 .logo-container {
@@ -70,80 +77,86 @@ header.main-header .container {
     align-items: center;
 }
 
-.logo-img { /* Adaptado de .navbar-brand img */
-    height: 50px; /* Era 60px, ajusta si es necesario */
+.logo-img {
+    height: 60px; /* Tamaño del logo del nuevo CSS */
     margin-right: 10px;
     object-fit: contain;
 }
 
 .logo-text {
-    font-family: var(--font-primary);
+    font-family: var(--font-primary-original); /* Mantienes tu fuente Playfair para el logo text */
     font-size: 24px;
     font-weight: 700;
-    color: var(--color-primary); /* O var(--color-primary-new) #23398b */
+    color: var(--ea-primary-blue); /* Color del nuevo CSS */
 }
 
-/* Navegación adaptada */
-nav.main-nav ul { /* Tu estructura de navegación */
+/* Estilos de navegación del nuevo CSS aplicados a tu .main-nav */
+.main-nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
 }
 
-nav.main-nav ul li {
-    margin-left: 25px; /* Similar a padding en .navbar-nav .nav-item */
-    position: relative; /* Para el efecto ::after */
-}
-
-nav.main-nav ul li a {
-    text-decoration: none;
-    color: var(--color-primary); /* O var(--color-primary-new) #23398b */
-    font-weight: bold; /* Del nuevo estilo */
-    font-size: 16px; /* Del nuevo estilo */
+.main-nav ul li {
+    /* padding: 10px 15px; /* Del .navbar-nav .nav-item del nuevo CSS. Tu original usa margin-left */
+    margin-left: 20px; /* Tu espaciado original, ajusta si es necesario */
     position: relative;
-    transition: all 0.3s ease-in-out; /* Del nuevo estilo */
-    display: inline-block;
-    padding-bottom: 8px; /* Ajustado para el ::after */
 }
 
-nav.main-nav ul li a::after { /* Efecto subrayado del nuevo estilo */
+.main-nav ul li a {
+    color: var(--ea-primary-blue) !important; /* #23398b */
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    padding-bottom: 5px; /* Espacio para la línea inferior */
+    text-decoration: none;
+}
+
+/* Línea inferior para enlaces de navegación */
+.main-nav ul li a::after {
     content: '';
     display: block;
     width: 0;
     height: 3px;
-    background-color: var(--color-secondary); /* Tu color de acento, o var(--color-primary-new) */
+    background-color: var(--ea-primary-blue);
     position: absolute;
-    bottom: 0px; /* Ajustado */
+    bottom: -3px; /* Ajustado para que esté justo debajo del padding-bottom del enlace */
     left: 0;
     transition: width 0.3s ease-in-out;
 }
 
-nav.main-nav ul li a:hover::after,
-nav.main-nav ul li a.active::after {
+.main-nav ul li a:hover::after,
+.main-nav ul li a.active::after {
     width: 100%;
 }
 
-nav.main-nav ul li a:hover,
-nav.main-nav ul li a.active {
-    color: var(--color-secondary); /* Tu color de acento, o var(--color-primary-new) */
+/* Para que el link "Inicio" no tenga la animación de línea si así se desea, como en el ejemplo */
+/* Si quieres que todos los links tengan la animación, elimina :not([href*='index.html']) y similares */
+.main-nav ul li a:hover:not(.active):not([href="index.html"])::after {
+     width: 100%;
+}
+.main-nav ul li a.active[href="index.html"]::after { /* Asegura que el activo "Inicio" tenga la línea */
+    width: 100%;
 }
 
 
-/* Hero Section (Manteniendo tu estilo actual, podrías adaptar fuentes y colores si deseas) */
+/* Hero Section - Manteniendo tu estructura, aplicando nueva tipografía si es necesario */
 .hero-section {
+    /* Tus estilos originales de background y padding */
     background-image: linear-gradient(rgba(13, 71, 161, 0.6), rgba(25, 118, 210, 0.6)), url('imagenes_recuerdos/1.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    color: var(--color-white);
+    color: var(--color-white-original);
     padding: 100px 0;
     text-align: center;
     position: relative;
     overflow: hidden;
 }
-
-.hero-section::before {
+.hero-section::before { /* Tu efecto original */
     content: '';
     position: absolute;
     top: 0; left: 0;
@@ -154,43 +167,31 @@ nav.main-nav ul li a.active {
     transform: scale(1.5);
 }
 .hero-title {
-    font-family: var(--font-primary);
-    font-size: 48px;
-    font-weight: 900;
+    font-family: 'Myriad Pro', var(--font-primary-original), sans-serif; /* Fuente del nuevo CSS o tu Playfair */
+    font-size: 48px; /* Tu tamaño original */
+    font-weight: 900; /* Tu peso original */
     margin-bottom: 20px;
     line-height: 1.2;
 }
 .hero-subtitle {
-    font-size: 20px;
+    font-family: 'Montserrat', sans-serif; /* Fuente del nuevo CSS */
+    font-size: 20px; /* Tu tamaño original */
     margin-bottom: 30px;
     opacity: 0.9;
 }
 
-/* Page Title Section (Para Programas, Preguntas, etc.) */
+/* Page Title Section (similar al hero) */
 .page-title-section {
     padding: 80px 0;
-    color: var(--color-white);
+    color: var(--color-white-original); /* O el color del nuevo CSS si aplica */
     text-align: center;
+    position: relative; /* Para el video de fondo */
+    overflow: hidden; /* Para el video de fondo */
 }
-.page-title-section h1 {
-    font-family: var(--font-primary);
-    font-size: 42px; /* Podrías usar 40px como en .nosotros h2 del nuevo estilo */
-    font-weight: bold; /* Del nuevo estilo */
-    margin-bottom: 10px; /* Era 20px en .nosotros h2 */
-    color: var(--color-white); /* O un color específico si el fondo no es oscuro */
-}
-.page-title-section p {
-    font-size: 18px; /* Podrías usar 20px como en .nosotros p */
-    opacity: 0.85;
-}
-
-/* Estilos de video de fondo para .page-title-section (ya los tienes) */
 .page-title-section.has-video-background {
-    position: relative;
-    overflow: hidden;
     background: none !important;
 }
-.program-hero-video { /* Tu clase para el video de fondo */
+.program-hero-video { /* Tu clase para video de fondo */
     position: absolute;
     top: 0;
     left: 0;
@@ -199,24 +200,34 @@ nav.main-nav ul li a.active {
     object-fit: cover;
     z-index: 1;
 }
-.video-overlay-gradient { /* Tu capa de degradado sobre el video */
+.video-overlay-gradient { /* Tu overlay */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(13, 71, 161, 0.65), rgba(25, 100, 180, 0.65));
+    background: linear-gradient(rgba(13, 71, 161, 0.65), rgba(25, 100, 180, 0.65)); /* Tu gradiente original */
     z-index: 2;
 }
-.page-title-section .container {
+.page-title-section .container { /* Para que el texto esté sobre el video y overlay */
     position: relative;
     z-index: 3;
 }
+.page-title-section h1 {
+    font-family: 'Myriad Pro', var(--font-primary-original), sans-serif;
+    font-size: 42px; /* Tu tamaño */
+    margin-bottom: 10px;
+}
+.page-title-section p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px; /* Tu tamaño */
+    opacity: 0.85;
+}
 
-/* Fondos específicos (manteniendo los tuyos) */
+/* Fondos específicos para page titles SIN VIDEO (manteniendo los tuyos) */
 .questions-bg { background: linear-gradient(rgba(255, 111, 0, 0.8), rgba(255, 111, 0, 0.8)), url('https://via.placeholder.com/1920x400/FF6F00/FFFFFF?text=Tienes+Preguntas%3F') center/cover; }
 .videoteca-bg { background: linear-gradient(rgba(38, 50, 56, 0.8), rgba(38, 50, 56, 0.8)), url('https://via.placeholder.com/1920x400/263238/FFFFFF?Text=Videoteca') center/cover; }
-.recuerdos-bg {
+.recuerdos-bg { /* Tu fondo original */
     background-image:
         url('logos_evento/mes.png'),
         linear-gradient(rgba(60, 145, 65, 0.75), rgba(30, 100, 35, 0.85));
@@ -224,213 +235,169 @@ nav.main-nav ul li a.active {
     background-position: center 65%, center center;
     background-repeat: no-repeat, no-repeat;
 }
-.welcome-bg { background: linear-gradient(rgba(29, 233, 182, 0.05), rgba(29, 233, 182, 0.05)); }
-.objectives-bg { background: linear-gradient(rgba(13, 71, 161, 0.03), rgba(13, 71, 161, 0.03)); }
 
 
-/* Botones adaptados */
+/* Botones - Combinando estilos */
 .btn {
     display: inline-block;
-    padding: 12px 30px; /* Similar a .btn-nosotros y .btn-directorio */
-    border-radius: var(--border-radius); /* O 10px como .btn-nosotros */
+    padding: 12px 30px;
+    border-radius: var(--border-radius-original); /* Tu border-radius */
     text-decoration: none;
-    font-weight: 700; /* O bold como en el nuevo estilo */
-    font-size: 16px; /* Similar a .btn-nosotros */
+    font-weight: bold; /* Del nuevo CSS */
+    font-size: 16px; /* Del nuevo CSS */
     transition: all 0.3s ease;
     border: 2px solid transparent;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    font-family: 'Montserrat', sans-serif; /* Consistencia de fuente */
 }
-.btn-primary { /* Tu botón primario */
-    background-color: var(--color-secondary); /* Naranja */
-    color: var(--color-white);
+/* Botón primario adaptado al color azul del nuevo CSS, o puedes usar tu naranja original */
+.btn-primary {
+    background-color: var(--ea-primary-blue); /* #1d3b6f o #23398b del nuevo CSS */
+    color: var(--color-white-original);
 }
 .btn-primary:hover {
-    background-color: #E65100; /* Naranja más oscuro */
-    transform: translateY(-2px); /* Efecto hover del nuevo estilo */
-    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+    background-color: #162b50; /* Un azul más oscuro para hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(29,59,111,0.4); /* Sombra adaptada al azul */
 }
-.btn-secondary { /* Tu botón secundario */
-    background-color: var(--color-primary); /* Azul */
-    color: var(--color-white);
+/* Botón secundario (si lo usas, puedes definirlo o usar el .btn-outline) */
+.btn-secondary {
+    background-color: var(--color-secondary-original); /* Tu naranja como secundario */
+    color: var(--color-white-original);
 }
 .btn-secondary:hover {
-    background-color: #0B3A80; /* Azul más oscuro */
+    background-color: #E65100; /* Tu naranja más oscuro */
     transform: translateY(-2px);
-    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 15px rgba(255,111,0,0.4);
 }
-.btn-outline {
+.btn-outline { /* Manteniendo tu estilo outline */
     background-color: transparent;
-    color: var(--color-secondary);
-    border-color: var(--color-secondary);
+    color: var(--color-secondary-original);
+    border-color: var(--color-secondary-original);
 }
 .btn-outline:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-white);
+    background-color: var(--color-secondary-original);
+    color: var(--color-white-original);
     transform: translateY(-2px);
 }
-.btn-card { /* Botón dentro de tus tarjetas */
-    padding: 8px 18px;
-    font-size: 14px;
-    background-color: var(--color-primary); /* Azul */
-    color: var(--color-white);
-    margin-top: 10px;
-    border-radius: 5px; /* Más pequeño que los botones principales */
-}
-.btn-card:hover {
-    background-color: var(--color-secondary); /* Cambia a naranja al pasar el mouse */
-}
 
-
-/* Secciones de Contenido */
-.content-section {
-    padding: var(--section-padding);
-    /* Aplicar animación de entrada si se desea, como en .nosotros del nuevo CSS */
-    /* opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out; */
-}
-/* .content-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-} */
-
-.content-section h2 {
-    font-family: var(--font-primary); /* O 'Myriad Pro' si la configuras */
-    font-size: 36px; /* Similar a 40px de .nosotros h2, pero más pequeño para consistencia */
-    color: var(--color-primary); /* O var(--color-primary-new) */
-    text-align: center;
-    margin-bottom: 40px; /* Similar a 20px de .nosotros h2 */
-    font-weight: bold; /* Del nuevo estilo */
-}
-.content-section h3 { /* Para subtítulos dentro de secciones */
-    font-family: var(--font-primary);
-    font-size: 28px;
-    color: var(--color-primary);
-    margin-bottom: 20px;
+/* Estilos de .btn-nosotros del nuevo CSS, si creas un botón con esa clase */
+.btn-nosotros {
+    background-color: #1d3b6f; /* Azul del nuevo CSS */
+    color: white;
+    font-size: 16px;
     font-weight: bold;
+    padding: 14px 28px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-.bg-light {
-    background-color: var(--color-light); /* O var(--color-background-new) */
+.btn-nosotros:hover {
+    background-color: #162b50;
+    transform: translateY(-2px);
+}
+
+
+/* Secciones de Contenido General */
+.content-section {
+    padding: var(--section-padding-original);
+    /* background-color: #ffffff; /* Fondo blanco por defecto para contenido, puede ser --ea-light-bg */
+}
+.content-section.bg-light { /* Tu clase .bg-light */
+    background-color: var(--color-light-original); /* Tu gris claro */
+}
+/* Títulos de sección h2 */
+.content-section h2 {
+    font-family: 'Myriad Pro', var(--font-primary-original), sans-serif;
+    font-size: 36px; /* Tu tamaño original, o 28px/40px del nuevo CSS si prefieres */
+    font-weight: bold;
+    color: var(--ea-primary-blue); /* Azul del nuevo CSS */
+    text-align: center;
+    margin-bottom: 40px; /* Tu margen original */
+}
+/* Títulos de sección h3 */
+.content-section h3 {
+    font-family: 'Myriad Pro', var(--font-primary-original), sans-serif;
+    font-size: 28px; /* Tu tamaño original */
+    color: var(--ea-primary-blue);
+    margin-bottom: 20px;
 }
 .text-center { text-align: center; }
 
-/* Sección Bienvenida (adaptada de .nosotros del nuevo CSS) */
-#bienvenida.content-section { /* Tu sección de bienvenida */
-    /* background-color: var(--color-white); */ /* O var(--color-background-new) */
-    /* display: flex; Ya tienes .welcome-content para esto */
-    /* align-items: center; */
-    /* justify-content: center; */
-    padding: 60px 20px;
-}
-.welcome-content { /* Tu contenedor interno */
+
+/* Bienvenida y Quiénes Somos (usando tus clases) */
+.welcome-content { /* Tu estructura */
     display: flex;
     align-items: center;
-    gap: 40px; /* Similar a padding y estructura de .nosotros */
+    gap: 40px;
 }
-.welcome-text { /* Tu texto de bienvenida */
-    flex: 2; /* max-width: 50% del nuevo .nosotros .contenido */
-    /* padding: 40px; */ /* Si quieres más espacio interno */
-    text-align: left;
-}
-#bienvenida h2 { /* El h2 dentro de tu bienvenida */
-    font-size: 36px; /* Un poco más pequeño que 40px de .nosotros h2 */
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: var(--color-primary); /* O var(--color-primary-new) */
-    text-align: left; /* Alineado a la izquierda para esta sección */
-}
-.welcome-text p {
-    font-size: 18px; /* Similar a 20px de .nosotros p */
-    color: var(--text-color); /* O var(--color-text-new) */
-    margin-bottom: 20px;
-}
-.welcome-image { /* Tu contenedor de imagen de bienvenida */
-    flex: 1;
-    text-align: center;
-}
+.welcome-text { flex: 2; }
+.welcome-image { flex: 1; text-align: center; }
 .welcome-image img {
-    max-width: 250px; /* O un tamaño fijo si es necesario */
-    height: auto;
-    border-radius: 15px; /* Bordes redondeados como en .nosotros .imagen img */
-    box-shadow: var(--card-shadow);
+    max-width:250px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* Quienes Somos (highlight-text se mantiene) */
-.highlight-text {
+.highlight-text { /* Tu clase */
     font-size: 20px;
     text-align: center;
-    color: var(--color-secondary);
+    color: var(--color-secondary-original); /* Tu naranja */
     font-weight: 700;
     padding: 20px;
     background-color: rgba(255,111,0,0.05);
-    border-left: 4px solid var(--color-secondary);
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    border-left: 4px solid var(--color-secondary-original);
+    border-radius: 0 var(--border-radius-original) var(--border-radius-original) 0;
 }
 
-/* Objetivos (objective-card se mantiene, sombras y bordes ya son similares) */
+/* Objetivos y Cards (manteniendo tu estructura) */
 .objectives-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
 .objective-card {
-    background-color: var(--color-white);
+    background-color: var(--color-white-original);
     padding: 25px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
+    border-radius: var(--border-radius-original);
+    box-shadow: var(--card-shadow-original);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .objective-card:hover {
-    transform: translateY(-5px); /* Efecto hover del nuevo estilo .comite-item */
+    transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 .objective-card h4 {
-    font-family: var(--font-secondary);
+    font-family: 'Montserrat', sans-serif; /* Fuente secundaria */
     font-size: 20px;
-    color: var(--color-secondary);
+    color: var(--color-secondary-original); /* Tu color naranja para destacar */
     margin-bottom: 10px;
     font-weight: 700;
 }
 
-/* Sección CTA (Call to Action) */
-.cta-section {
-    padding: var(--section-padding);
-    background: linear-gradient(135deg, var(--color-secondary) 0%, #FF8F00 100%);
-    color: var(--color-white);
-    text-align: center;
-}
-.cta-section h2 {
-    color: var(--color-white);
-    font-size: 32px;
-    font-weight: bold;
-}
-.cta-section p {
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-.cta-section .btn { margin: 0 10px; }
-
-/* Programas Grid (program-card se mantiene) */
+/* Program Grid y Program Card (manteniendo tu estructura) */
 .program-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
 }
 .program-card {
-    background-color: var(--color-white);
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
+    background-color: var(--color-white-original);
+    border-radius: var(--border-radius-original);
+    box-shadow: var(--card-shadow-original);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .program-card:hover {
-    transform: translateY(-5px); /* Efecto hover del nuevo estilo .comite-item */
+    transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
-.program-card-image {
+.program-card-image { /* Estilos para la imagen de la tarjeta de programa */
     height: 200px;
     background-size: cover;
     background-position: center;
@@ -442,11 +409,11 @@ nav.main-nav ul li a.active {
     flex-direction: column;
 }
 .program-card-content h3 {
-    font-family: var(--font-secondary); /* O var(--font-primary) */
-    font-size: 22px; /* Similar a .comite-item h3 */
-    color: var(--color-primary); /* O var(--color-text-new) */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    color: var(--ea-primary-blue); /* Azul del nuevo CSS */
     margin-top: 0; margin-bottom: 10px;
-    font-weight: 700; /* O bold */
+    font-weight: 700;
 }
 .program-meta {
     font-size: 14px;
@@ -460,52 +427,46 @@ nav.main-nav ul li a.active {
     margin-bottom: 15px;
     flex-grow: 1;
 }
-.program-introduction {
-    background-color: var(--color-light); /* O var(--color-background-new) */
+.program-introduction { /* Introducción en página de programas */
+    background-color: var(--ea-light-bg); /* #f7f6f5 */
     padding: 30px;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-original);
     margin-bottom: 40px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 .program-introduction h2 {
-    color: var(--color-secondary);
+    color: var(--color-secondary-original); /* Tu naranja para este título */
     font-size: 28px;
     margin-bottom: 15px;
-    font-weight: bold;
 }
 .program-introduction p {
     font-size: 16px;
     margin-bottom: 10px;
     line-height: 1.6;
 }
-.category-title {
-    font-family: var(--font-primary);
+.category-title { /* Títulos de categoría en programas */
+    font-family: 'Myriad Pro', var(--font-primary-original), sans-serif;
     font-size: 32px;
-    color: var(--color-primary);
+    color: var(--ea-primary-blue);
     text-align: left;
     margin-top: 40px;
     margin-bottom: 30px;
     padding-bottom: 10px;
-    border-bottom: 2px solid var(--color-secondary);
+    border-bottom: 2px solid var(--color-secondary-original); /* Tu naranja */
     display: inline-block;
-    font-weight: bold;
-}
-.program-introduction + .category-title {
-    margin-top: 0;
 }
 
-/* FAQ - Preguntas (manteniendo tu estilo actual) */
+/* FAQ - Preguntas (manteniendo tu estructura) */
 .faq-item {
     margin-bottom: 15px;
-    border: 1px solid var(--color-light);
-    border-radius: var(--border-radius);
+    border: 1px solid var(--color-light-original);
+    border-radius: var(--border-radius-original);
     overflow: hidden;
-    background-color: var(--color-white); /* Para consistencia */
 }
 .faq-question {
-    background-color: transparent; /* Hereda de .faq-item */
-    color: var(--color-primary);
+    background-color: var(--color-white-original);
+    color: var(--ea-primary-blue); /* Azul del nuevo CSS */
     cursor: pointer;
     padding: 15px 20px;
     width: 100%;
@@ -513,27 +474,27 @@ nav.main-nav ul li a.active {
     text-align: left;
     outline: none;
     font-size: 18px;
-    font-weight: 700; /* O bold */
+    font-weight: 700; /* O bold del nuevo CSS */
     transition: background-color 0.3s ease;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.faq-question::after {
+.faq-question::after { /* Tu símbolo '+' */
     content: '+';
     font-size: 24px;
-    color: var(--color-secondary);
+    color: var(--color-secondary-original); /* Tu naranja */
     transition: transform 0.3s ease;
 }
 .faq-question.active::after {
     transform: rotate(45deg);
 }
 .faq-question:hover {
-    background-color: rgba(0,0,0,0.03); /* Un hover sutil */
+    background-color: #f9f9f9; /* Un gris muy claro para hover */
 }
 .faq-answer {
     padding: 0 20px;
-    background-color: transparent; /* Hereda de .faq-item */
+    background-color: var(--color-white-original);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out, padding 0.3s ease-out;
@@ -541,152 +502,136 @@ nav.main-nav ul li a.active {
 .faq-answer p {
     padding: 15px 0;
     margin: 0;
-    color: var(--text-color); /* Asegurar color de texto */
-}
-.email-link {
-    color: var(--color-secondary);
-    font-weight: 700;
-    text-decoration: none;
-}
-.email-link:hover {
-    text-decoration: underline;
 }
 
-/* Estilos para la videoteca (manteniendo tu estilo actual) */
-.video-item video { /* Si usas videos directos, no iframes */
-    width: 100%;
-    height: auto;
-    min-height: 280px;
-    border-radius: var(--border-radius);
-    background-color: #000;
-}
+/* Videoteca (manteniendo tu estructura) */
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* Tu layout */
     gap: 30px;
     margin-top: 20px;
 }
 .video-item {
-    background-color: var(--color-white);
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
+    background-color: var(--color-white-original);
+    border-radius: var(--border-radius-original);
+    box-shadow: var(--card-shadow-original);
     overflow: hidden;
     padding: 15px;
 }
 .video-item iframe {
     width: 100%;
-    border-radius: var(--border-radius);
-    min-height: 280px; /* Ajusta según sea necesario */
+    border-radius: var(--border-radius-original);
+    min-height: 280px; /* Tu altura mínima */
 }
 .video-item h3 {
-    font-family: var(--font-secondary);
+    font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-    color: var(--color-primary);
+    color: var(--ea-primary-blue); /* Azul del nuevo CSS */
     margin-top: 10px;
     margin-bottom: 5px;
-    font-weight: bold;
-}
-.video-item p {
-    font-size: 15px;
-    color: var(--text-color);
 }
 
-/* Estilos para Sección Comité Local (manteniendo tu estructura) */
-#comite-local .comite-foto-grupal {
-    text-align: center;
-    margin-bottom: 30px;
-}
+/* Sección Comité Local (manteniendo tu estructura) */
 #comite-local .comite-foto-grupal img {
     max-width: 100%;
     height: auto;
-    border-radius: var(--border-radius); /* O 15px como .nosotros .imagen img */
-    box-shadow: var(--card-shadow);
+    border-radius: var(--border-radius-original);
+    box-shadow: var(--card-shadow-original);
     max-height: 450px;
     object-fit: cover;
 }
-.comite-miembros {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    text-align: left;
+/* Estilos para la imagen de comite-imagen del nuevo CSS si la usas */
+.comite-imagen { /* Clase del nuevo CSS */
+    position: relative;
+    width: 100%;
+    height: 100vh; /* O ajusta según necesites */
+    overflow: hidden;
+    margin-top: 87px; /* Si el header es fijo y con esa altura */
 }
-.miembro-perfil {
-    background-color: var(--color-white);
-    padding: 20px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Sombra más sutil */
-    border-left: 4px solid var(--color-primary); /* O var(--color-secondary) */
-}
-.miembro-perfil h3 {
-    font-family: var(--font-primary);
-    font-size: 22px;
-    color: var(--color-secondary); /* Color de acento para el nombre */
-    margin-top: 0;
-    margin-bottom: 8px;
-    text-align: center;
-    font-weight: bold;
-}
-.miembro-perfil .cargo {
-    font-size: 16px;
-    color: var(--color-dark);
-    margin-bottom: 5px;
-    font-weight: 700;
-    text-align: center;
-}
-.miembro-perfil .cargo strong {
-    color: var(--color-primary);
-}
-.miembro-perfil .palabras {
-    font-size: 15px;
-    color: #555; /* O var(--text-color) */
-    font-style: italic;
-    line-height: 1.6;
-}
-.miembro-perfil .palabras p {
-    margin-bottom: 10px;
-}
-.miembro-perfil .palabras p:last-child {
-    margin-bottom: 0;
-}
-.miembro-perfil .palabras blockquote.scripture-quote {
-    margin: 15px 0px;
-    padding: 10px 15px;
-    background-color: rgba(13, 71, 161, 0.03); /* Fondo sutil con tu color primario */
-    border-left: 3px solid var(--color-accent);
-    color: var(--text-color);
-    font-style: normal;
-}
-.miembro-perfil .palabras blockquote.scripture-quote p {
-    font-style: italic;
-    margin-bottom: 5px;
-}
-.miembro-perfil .palabras blockquote.scripture-quote footer {
-    text-align: right;
-    font-size: 0.9em;
-    color: #666;
-    font-style: normal;
-    margin-top: 5px;
-}
-.miembro-perfil .palabras blockquote.scripture-quote footer cite {
-    font-style: normal;
+.comite-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
+
+/* Contacto en Preguntas (adaptando tu .social-link-item a los estilos de .redes-sociales del nuevo CSS) */
+.social-media-contact {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.social-links { /* Tu contenedor de enlaces */
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaciado del nuevo CSS */
+    flex-wrap: wrap;
+}
+.social-link-item {
+    /* Removido display flex y justify/align center de aquí, se maneja en .social-links */
+}
+.social-link-item a { /* El texto del enlace */
+    color: var(--ea-primary-blue); /* Color del nuevo CSS */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex; /* Para alinear icono y texto si están dentro del 'a' */
+    align-items: center;
+    gap: 8px;
+}
+.social-link-item a:hover {
+    text-decoration: underline;
+}
+.social-icon { /* Tu clase para los iconos */
+    width: 40px;  /* Tamaño de .redes-sociales img del nuevo CSS, ajusta si es necesario */
+    height: 40px;
+    object-fit: contain;
+    /* border-radius: 10px; /* Bordes redondeados del nuevo CSS */
+    transition: transform 0.3s ease-in-out;
+    margin-right: 0; /* Ya no es necesario si el gap está en el 'a' o en .social-links */
+}
+.social-icon:hover {
+    transform: scale(1.1); /* Efecto del nuevo CSS */
+}
+/* Animación flotante para iconos (opcional, del nuevo CSS) */
+/* @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+.social-icon {
+    animation: float 2s infinite ease-in-out;
+} */
+
+
 /* Footer adaptado */
-footer.main-footer { /* Tu clase de footer */
-    /* background: url('../assets/img/fondo_hja.jpg') no-repeat center center/cover; */ /* Del nuevo CSS, si tienes una imagen de fondo */
-    background-color: var(--color-dark); /* Tu color oscuro actual, o el del nuevo footer si se define */
-    color: var(--color-light); /* O white si el fondo es muy oscuro */
-    padding: 40px 0; /* Similar a 60px 0px del nuevo */
-    text-align: center;
-    font-size: 14px;
+.main-footer { /* Tu clase de footer */
+    background: var(--ea-dark-text); /* Fondo oscuro del nuevo CSS (o usa tu imagen de fondo si la tienes) */
+    /* background: url('../assets/img/fondo_hja.jpg') no-repeat center center/cover; /* Si tienes la imagen */
+    color: var(--color-white-original);
+    padding: 40px 0; /* Tu padding, o 60px 0 del nuevo CSS */
+    text-align: center; /* Centrado por defecto */
+    font-size: 14px; /* Tu tamaño original */
 }
-footer.main-footer p {
+/* Si decides usar una estructura más compleja como la del nuevo footer, necesitarás añadir HTML */
+/* Ejemplo simple para el texto del footer */
+.main-footer p {
     margin: 5px 0;
-    /* font-size: 14px; */ /* Ya definido en .main-footer */
-    line-height: 1.6;
+    font-size: 14px; /* Del nuevo CSS .footer p */
+    line-height: 1.6; /* Del nuevo CSS .footer p */
 }
-/* Si quieres una estructura de columnas como en el nuevo footer, necesitarías añadir más HTML.
-   Por ahora, se mantiene tu estructura simple. */
+.main-footer .container {
+    /* max-width: 1200px; /* Del nuevo CSS, si quieres limitarlo más */
+    /* margin: auto; */
+}
+/* Estilo para el copyrigth o "footer-bottom" */
+.footer-bottom-text { /* Crea un span o p con esta clase para el texto de derechos */
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    opacity: 0.8;
+}
 
 
 /* Animaciones al hacer scroll (manteniendo las tuyas) */
@@ -695,6 +640,12 @@ footer.main-footer p {
     transform: translateY(30px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+/* Nueva animación de aparición del CSS proporcionado, puedes usar esta o la tuya */
+/* .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+} */
 .animate-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
@@ -705,171 +656,8 @@ footer.main-footer p {
 .delay-4 { transition-delay: 0.4s; }
 
 
-/* Métodos de Contacto en Preguntas (iconos ya corregidos en la respuesta anterior) */
-.social-media-contact {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.social-media-contact p { /* Párrafo introductorio */
-    font-size: 18px;
-    margin-bottom: 15px;
-}
-/* .social-links es tu contenedor para los items de contacto */
-.social-link-item {
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-.social-link-item a {
-    color: var(--color-secondary); /* O var(--color-primary-new) */
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-.social-link-item a:hover {
-    text-decoration: underline;
-    /* color: var(--color-primary); */ /* O un color de hover diferente */
-}
-.social-icon { /* Iconos de contacto/redes */
-    width: 24px; /* Tamaño del nuevo estilo .footer-col ul li i (ajustado) */
-    height: 24px;
-    margin-right: 10px;
-    object-fit: contain;
-    /* Para efecto flotante como en .redes-sociales img del nuevo CSS (opcional) */
-    /* animation: float 2s infinite ease-in-out; */
-}
-
-/* Animación flotante (opcional, si la usas para .social-icon) */
-/*
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-3px); // Más sutil para iconos pequeños
-    }
-}
-*/
-
-/* Responsividad General (manteniendo y adaptando la tuya) */
-@media (max-width: 992px) { /* Para tablets y móviles grandes */
-    /* #bienvenida .welcome-content, .nosotros (si lo usaras del nuevo CSS) */
-    #bienvenida .welcome-content {
-        flex-direction: column;
-        text-align: center;
-    }
-     #bienvenida h2 {
-        text-align: center;
-    }
-    #bienvenida .welcome-text {
-        text-align: center; /* Centrar texto en vista de columna */
-    }
-}
-
-@media (max-width: 768px) { /* Móviles */
-    header.main-header .container {
-        flex-direction: column;
-        align-items: center;
-    }
-    nav.main-nav ul {
-        margin-top: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    nav.main-nav ul li {
-        margin: 5px 10px;
-    }
-
-    .hero-title { font-size: 36px; }
-    .hero-subtitle { font-size: 18px; }
-
-    .content-section h2 { font-size: 30px; }
-    .content-section h3 { font-size: 24px; }
-
-    .program-grid { grid-template-columns: 1fr; }
-    .video-grid { grid-template-columns: 1fr; }
-    .video-item iframe { min-height: 200px; }
-
-    .comite-miembros {
-        grid-template-columns: 1fr;
-    }
-
-    /* Para centrar los items de contacto en móvil si el contenedor general está centrado */
-    #contactar .social-links {
-        text-align: center; /* Asegura que los items inline-block se centren */
-    }
-    .social-link-item {
-        justify-content: center; /* Esto ya lo hace, pero se reafirma */
-        /* display: inline-flex; /* Para que text-align:center del padre funcione si son muchos */
-    }
-}
-
-
-/* Estilos para Logos Decorativos en Recuerdos (manteniendo los tuyos) */
-.recuerdos-decorative-container {
-    position: relative;
-}
-.recuerdos-decorative-container::before,
-.recuerdos-decorative-container::after {
-    content: "";
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: contain;
-    opacity: 0.15;
-    z-index: 0;
-    pointer-events: none;
-}
-.recuerdos-decorative-container::before {
-    background-image: url('logos_evento/Gavillas.png');
-    width: 90px;
-    height: 90px;
-    bottom: 20px;
-    right: 20px;
-}
-.recuerdos-decorative-container::after {
-    background-image: url('logos_evento/fervientes.png');
-    width: 100px;
-    height: 100px;
-    bottom: 20px;
-    left: 20px;
-}
-.recuerdos-decorative-container > .gallery,
-.recuerdos-decorative-container > h2 {
-    position: relative;
-    z-index: 1;
-}
-
-@media (max-width: 768px) {
-    .recuerdos-decorative-container::before,
-    .recuerdos-decorative-container::after {
-        opacity: 0.12;
-    }
-    .recuerdos-decorative-container::before {
-        width: 70px; height: 70px; bottom: 15px; right: 15px;
-    }
-    .recuerdos-decorative-container::after {
-        width: 80px; height: 80px; bottom: 15px; left: 15px;
-    }
-}
-@media (max-width: 480px) {
-    .recuerdos-decorative-container::before,
-    .recuerdos-decorative-container::after {
-        width: 50px;
-        height: 50px;
-        bottom: 10px;
-    }
-    .recuerdos-decorative-container::before {
-        right: 10px;
-    }
-    .recuerdos-decorative-container::after {
-        left: 10px;
-    }
-}
-
-/* Estilos de gallery.css integrados (ya que es corto) */
+/* Galería de Recuerdos (manteniendo tu gallery.css) */
+/* Si gallery.css no se importa, copia aquí tus estilos de .gallery y .gallery-item */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -878,17 +666,134 @@ footer.main-footer p {
 }
 .gallery-item {
     overflow: hidden;
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
+    border-radius: var(--border-radius-original);
+    box-shadow: var(--card-shadow-original);
     transition: transform 0.3s ease;
-    background-color: var(--color-white); /* Añadir fondo por si las imágenes no cargan o tienen transparencias */
 }
 .gallery-item:hover {
-    transform: scale(1.05) translateY(-3px); /* Combinar efectos */
+    transform: scale(1.05);
 }
 .gallery-item img {
     width: 100%;
-    height: 100%; /* Asegurar que la imagen llene el contenedor */
-    object-fit: cover; /* Para que la imagen cubra sin distorsionarse */
+    height: auto;
     display: block;
 }
+/* Logos decorativos de recuerdos (manteniendo los tuyos) */
+.recuerdos-decorative-container { position: relative; }
+.recuerdos-decorative-container::before,
+.recuerdos-decorative-container::after {
+    content: ""; position: absolute; background-repeat: no-repeat;
+    background-size: contain; opacity: 0.15; z-index: 0; pointer-events: none;
+}
+.recuerdos-decorative-container::before {
+    background-image: url('logos_evento/Gavillas.png');
+    width: 90px; height: 90px; bottom: 20px; right: 20px;
+}
+.recuerdos-decorative-container::after {
+    background-image: url('logos_evento/fervientes.png');
+    width: 100px; height: 100px; bottom: 20px; left: 20px;
+}
+.recuerdos-decorative-container > .gallery,
+.recuerdos-decorative-container > h2 { position: relative; z-index: 1; }
+
+
+/* Responsividad General (combinando y ajustando) */
+@media (max-width: 992px) { /* Tabletas y móviles grandes */
+    /* Ajustes de '.nosotros' si implementas esa estructura */
+    /* .nosotros { flex-direction: column; text-align: center; } */
+    /* .nosotros .contenido, .nosotros .imagen { max-width: 100%; text-align: center; } */
+
+    /* Comités (del nuevo CSS, si implementas la sección) */
+    /* .comites-container { grid-template-columns: repeat(3, 1fr); } */
+}
+
+@media (max-width: 768px) { /* Móviles */
+    .main-header .container {
+        flex-direction: column;
+        align-items: center; /* Centra logo y nav en columna */
+    }
+    .main-nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap; /* Permite que los items pasen a la siguiente línea */
+        justify-content: center; /* Centra los items de navegación */
+    }
+    .main-nav ul li {
+        margin: 5px 10px; /* Ajusta margen para items envueltos */
+    }
+
+    .hero-title { font-size: 36px; }
+    .hero-subtitle { font-size: 18px; }
+    .page-title-section h1 { font-size: 32px; }
+    .page-title-section p { font-size: 16px; }
+
+    .content-section h2 { font-size: 30px; }
+    .content-section h3 { font-size: 24px; }
+
+    .welcome-content { flex-direction: column; }
+    .program-grid { grid-template-columns: 1fr; } /* Programas a una columna */
+    .video-grid { grid-template-columns: 1fr; } /* Videos a una columna */
+    .video-item iframe { min-height: 200px; }
+    .objectives-grid { grid-template-columns: 1fr; } /* Objetivos a una columna */
+
+    .comite-miembros { grid-template-columns: 1fr; } /* Miembros del comité a una columna */
+
+    /* Ajustes de video de fondo y comite-imagen para móviles (del nuevo CSS) */
+    .program-hero-video, /* Aplicado a tu video de fondo */
+    .comite-imagen { /* Si usas esta clase para alguna imagen de cabecera */
+        /* margin-top: 80px; /* Ajusta si el header tapa el contenido */
+        height: 35vh; /* Altura más pequeña para estos contenedores en móvil */
+    }
+
+    /* Comités (del nuevo CSS, si implementas la sección) */
+    /* .comites-container { grid-template-columns: repeat(2, 1fr); } */
+    /* .comite-item img { width: 130px; } */
+
+    /* Footer (del nuevo CSS) */
+    /* .footer-container { flex-direction: column; text-align: center; } */
+    /* .descargas { flex-direction: row; justify-content: center; } */
+    /* .descarga-group { margin-left: 0; } */
+
+
+    /* Logos decorativos de recuerdos (tus ajustes responsivos) */
+    .recuerdos-decorative-container::before,
+    .recuerdos-decorative-container::after { opacity: 0.12; }
+    .recuerdos-decorative-container::before {
+        width: 70px; height: 70px; bottom: 15px; right: 15px;
+    }
+    .recuerdos-decorative-container::after {
+        width: 80px; height: 80px; bottom: 15px; left: 15px;
+    }
+}
+
+@media (max-width: 480px) { /* Móviles muy pequeños */
+    /* Comités (del nuevo CSS, si implementas la sección) */
+    /* .comites-container { grid-template-columns: repeat(1, 1fr); } */
+
+    .hero-title { font-size: 30px; }
+    .hero-subtitle { font-size: 16px; }
+
+    /* Logos decorativos de recuerdos (tus ajustes responsivos) */
+    .recuerdos-decorative-container::before,
+    .recuerdos-decorative-container::after {
+        width: 50px; height: 50px; bottom: 10px;
+    }
+    .recuerdos-decorative-container::before { right: 10px; }
+    .recuerdos-decorative-container::after { left: 10px; }
+}
+
+/* Ocultar radioModal y miGif en pantallas pequeñas (del nuevo CSS) */
+/* Esta regla es más general que la de 1000px, así que podría ocultarlos antes */
+@media screen and (max-width: 1000px) { /* O la medida que uses, ej. 767px */
+    #radioModal, #miGif { /* Si tienes estos IDs */
+        /* display: none !important; */ /* Descomenta si tienes estos elementos y quieres ocultarlos */
+    }
+    /* Mostrar radio-mobile (del nuevo CSS) si tienes esa sección HTML */
+    /* .radio-mobile { display: flex; } */
+}
+
+/* Ocultar radio-mobile en pantallas grandes (del nuevo CSS) */
+/* @media screen and (min-width: 1001px) {
+    .radio-mobile {
+        display: none !important;
+    }
+} */
