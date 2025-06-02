@@ -395,9 +395,6 @@ body {
     display: flex; /* Para alinear ícono si se añade */
     align-items: center;
 }
-/* Podrías añadir íconos aquí:
-.objective-card h4::before { content: '🎯'; margin-right: 10px; font-size: 24px; }
-*/
 .objective-card p {
     font-size: 16px;
 }
@@ -480,11 +477,12 @@ body {
 }
 .program-meta span { display: block; margin-bottom: 5px; }
 .program-meta span::before { /* Íconos para metadatos */
-    font-family: 'Font Awesome 5 Free'; /* Asume que tienes FontAwesome, o usa SVGs/emojis */
+    /* font-family: 'Font Awesome 5 Free'; Asegúrate que FontAwesome esté linkeado si usas esto */
+    display: inline-block; /* Necesario para algunos íconos/emojis */
     margin-right: 8px;
     color: var(--color-secondary);
 }
-.program-meta span[data-icon="📅"]::before { content: "📅"; } /* O usa clases para íconos específicos */
+.program-meta span[data-icon="📅"]::before { content: "📅"; }
 .program-meta span[data-icon="📍"]::before { content: "📍"; }
 
 .program-description {
@@ -512,9 +510,9 @@ body {
     margin-bottom: 12px;
     line-height: 1.7;
 }
-.category-title {
+.category-title { /* Este estilo puede que ya no se use si los títulos de categoría se eliminaron */
     font-family: var(--font-primary);
-    font-size: 36px; /* Aumentado */
+    font-size: 36px;
     color: var(--color-primary);
     text-align: left;
     margin-top: 50px;
@@ -526,6 +524,42 @@ body {
 .program-introduction + .category-title {
     margin-top: 0;
 }
+
+/* Estilos para la tarjeta de evento especial (Damas Dorcas) */
+.program-card-special-event {
+    border-left: 8px solid var(--color-accent); /* Borde izquierdo prominente con color de acento */
+    border-top: 2px solid var(--color-accent-darker);
+    border-right: 2px solid var(--color-accent-darker);
+    border-bottom: 5px solid var(--color-accent); /* Borde inferior consistente pero con color de acento */
+    box-shadow: 0 10px 35px rgba(29, 233, 182, 0.3); /* Sombra con el color de acento */
+    background-color: #f8fdfb; /* Un fondo muy sutilmente diferente, casi blanco pero con un toque de verde */
+    position: relative; 
+    overflow: hidden; 
+}
+.program-card-special-event .program-card-content h3.special-title {
+    color: var(--color-accent-darker);
+    font-size: 26px; 
+    text-align: center;
+    margin-bottom: 15px;
+}
+.program-card-special-event .program-card-content .event-details p {
+    font-size: 16px; 
+    line-height: 1.7;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+.program-card-special-event .program-card-content .event-details p strong {
+    color: var(--color-primary);
+}
+.program-card-special-event:hover {
+    transform: translateY(-10px) scale(1.03); /* Mayor elevación y escala */
+    box-shadow: 0 18px 45px rgba(29, 233, 182, 0.45);
+    border-left-color: var(--color-secondary); 
+    border-top-color: var(--color-secondary);
+    border-right-color: var(--color-secondary);
+    border-bottom-color: var(--color-secondary);
+}
+
 
 /* FAQ - Preguntas */
 .faq-item {
@@ -692,13 +726,13 @@ body {
 .miembro-perfil .palabras {
     font-size: 16px; /* Aumentado */
     color: #555;
-    font-style: normal; /* Quitar itálica general, aplicar selectivamente */
+    font-style: normal; 
     line-height: 1.7;
 }
 .miembro-perfil .palabras p {
     margin-bottom: 12px;
 }
-.miembro-perfil .palabras p em { /* Para citas o énfasis */
+.miembro-perfil .palabras p em { 
     font-style: italic;
     color: var(--color-dark);
 }
@@ -708,7 +742,7 @@ body {
 .miembro-perfil .palabras blockquote.scripture-quote {
     margin: 20px 0px; /* Espaciado aumentado */
     padding: 15px 20px; /* Padding aumentado */
-    background-color: rgba(var(--color-primary-rgb, 13, 71, 161),0.05); /* Usando RGB del primario si se define */
+    background-color: rgba(13, 71, 161,0.05); /* Usando RGB del primario */
     border-left: 4px solid var(--color-accent);
     color: var(--text-color);
     font-style: normal;
@@ -760,7 +794,6 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
-/* Retrasos más notorios */
 .delay-1 { transition-delay: 0.15s; }
 .delay-2 { transition-delay: 0.3s; }
 .delay-3 { transition-delay: 0.45s; }
@@ -772,21 +805,21 @@ body {
     margin-top: 30px;
     margin-bottom: 30px;
 }
-.social-media-contact > p { /* Párrafo introductorio */
+.social-media-contact > p { 
     font-size: 18px;
     margin-bottom: 25px;
     color: var(--text-color);
 }
 .social-links {
     display: flex;
-    flex-direction: column; /* Apilados verticalmente por defecto */
-    align-items: center; /* Centrados en móviles */
-    gap: 15px; /* Espacio entre links */
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
 }
 .social-link-item {
     display: flex;
     align-items: center;
-    width: auto; /* Ajustar al contenido */
+    width: auto; 
     padding: 10px 15px;
     border-radius: var(--border-radius);
     transition: background-color var(--transition-speed) ease;
@@ -798,7 +831,7 @@ body {
     color: var(--color-secondary);
     text-decoration: none;
     font-weight: bold;
-    font-size: 17px; /* Aumentado */
+    font-size: 17px; 
     display: flex;
     align-items: center;
     transition: color var(--transition-speed) ease;
@@ -807,18 +840,18 @@ body {
     color: var(--color-accent-darker);
 }
 .social-icon {
-    width: 28px; /* Iconos más grandes */
+    width: 28px; 
     height: 28px;
     margin-right: 12px;
     object-fit: contain;
-    filter: grayscale(30%); /* Ligero desaturado para integrar mejor */
+    filter: grayscale(30%); 
     transition: filter var(--transition-speed) ease;
 }
 .social-link-item:hover .social-icon {
-    filter: grayscale(0%); /* Color completo al hover */
+    filter: grayscale(0%); 
 }
-#contactar img[alt="Contacto EA"] { /* Logo al final de la sección contacto */
-    max-width: 180px; /* Más grande */
+#contactar img[alt="Contacto EA"] { 
+    max-width: 180px; 
     margin-top: 30px;
     opacity: 0.8;
     transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
@@ -831,21 +864,21 @@ body {
 
 @media (min-width: 768px) {
     .social-links {
-        display: grid; /* Cambiar a grid en pantallas más grandes */
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-        gap: 20px 30px; /* Espacio entre filas y columnas */
-        max-width: 700px; /* Ancho máximo para el grid */
+        display: grid; 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px 30px; 
+        max-width: 700px; 
         margin-left: auto;
         margin-right: auto;
     }
     .social-link-item {
-        justify-content: flex-start; /* Alinea ícono + texto al inicio del item en grid */
+        justify-content: flex-start; 
     }
 }
 
 
 /* Responsividad General */
-@media (max-width: 992px) { /* Breakpoint intermedio */
+@media (max-width: 992px) { 
     .hero-title { font-size: 48px; }
     .hero-subtitle { font-size: 20px; }
     .content-section h2 { font-size: 36px; }
@@ -866,11 +899,11 @@ body {
         justify-content: center;
     }
     .main-nav ul li {
-        margin: 8px 12px; /* Espaciado ajustado */
+        margin: 8px 12px; 
     }
     .main-nav ul li a { font-size: 16px; }
 
-    .hero-title { font-size: 38px; } /* Reducido para móviles */
+    .hero-title { font-size: 38px; } 
     .hero-subtitle { font-size: 18px; }
     .hero-section { padding: 80px 0; }
 
@@ -887,7 +920,7 @@ body {
     .welcome-image img { max-width: 250px; }
     .highlight-text { font-size: 19px; max-width: 95%;}
 
-    .objectives-grid { grid-template-columns: 1fr; gap: 25px; } /* Una columna en móviles */
+    .objectives-grid { grid-template-columns: 1fr; gap: 25px; } 
     .program-grid { grid-template-columns: 1fr; gap: 25px; }
     .video-grid { grid-template-columns: 1fr; gap: 25px; }
     .video-item iframe, .video-item video { min-height: 250px; }
@@ -897,12 +930,12 @@ body {
     .miembro-perfil .cargo { font-size: 16px; }
     .miembro-perfil .palabras { font-size: 15px; }
 
-    .cta-section .btn { margin: 10px 5px; display: block; } /* Botones CTA en bloque */
+    .cta-section .btn { margin: 10px 5px; display: block; } 
 
     .faq-question { font-size: 17px; padding: 15px 20px;}
     .faq-answer p { font-size: 15px; }
 
-    .social-links { /* Ya es flex-direction column, se mantiene bien */
+    .social-links { 
         width: 100%;
     }
     .social-link-item a { font-size: 16px;}
@@ -919,28 +952,28 @@ body {
     position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
-    opacity: 0.1; /* Reducida opacidad para sutileza */
+    opacity: 0.1; 
     z-index: 0;
     pointer-events: none;
     transition: transform var(--transition-speed) ease-out, opacity var(--transition-speed) ease-out;
 }
 .recuerdos-decorative-container:hover::before,
-.recuerdos-decorative-container:hover::after { /* Animación sutil al hover del contenedor */
+.recuerdos-decorative-container:hover::after { 
     opacity: 0.18;
     transform: scale(1.1) rotate(3deg);
 }
 .recuerdos-decorative-container::before {
     background-image: url('logos_evento/Gavillas.png');
-    width: 100px; /* Aumentado */
+    width: 100px; 
     height: 100px;
-    bottom: 30px; /* Ajustado */
+    bottom: 30px; 
     right: 30px;
 }
 .recuerdos-decorative-container::after {
     background-image: url('logos_evento/fervientes.png');
-    width: 110px; /* Aumentado */
+    width: 110px; 
     height: 110px;
-    bottom: 30px; /* Ajustado */
+    bottom: 30px; 
     left: 30px;
     transform-origin: bottom left;
 }
@@ -954,7 +987,7 @@ body {
 @media (max-width: 768px) {
     .recuerdos-decorative-container::before,
     .recuerdos-decorative-container::after {
-        opacity: 0.08; /* Más sutil en móviles */
+        opacity: 0.08; 
     }
     .recuerdos-decorative-container::before {
         width: 80px; height: 80px; bottom: 20px; right: 20px;
@@ -966,70 +999,172 @@ body {
 @media (max-width: 480px) {
     .recuerdos-decorative-container::before,
     .recuerdos-decorative-container::after {
-        width: 60px; /* Reducido para móviles pequeños */
+        width: 60px; 
         height: 60px;
         bottom: 15px;
     }
     .recuerdos-decorative-container::before { right: 15px; }
     .recuerdos-decorative-container::after { left: 15px; }
 }
-/* Estilos para la tarjeta de evento especial (Damas Dorcas) */
-.program-card-special-event {
-    border-left: 8px solid var(--color-accent); /* Borde izquierdo prominente con color de acento */
-    border-top: 2px solid var(--color-accent-darker);
-    border-right: 2px solid var(--color-accent-darker);
-    border-bottom: 5px solid var(--color-accent); /* Borde inferior consistente pero con color de acento */
-    box-shadow: 0 10px 35px rgba(29, 233, 182, 0.3); /* Sombra con el color de acento */
-    background-color: #f8fdfb; /* Un fondo muy sutilmente diferente, casi blanco pero con un toque de verde */
-    position: relative; /* Necesario para el pseudo-elemento de la cinta si se usa */
-    overflow: hidden; /* Para que la cinta no se salga si se usa */
+
+/* Estilos para el Modal de Anuncio de Evento */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+    display: flex; /* Usado por JS para mostrar/ocultar */
+    align-items: center;
+    justify-content: center;
+    z-index: 2000; /* Asegurar que esté por encima de todo */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
 }
 
-/* Hacer que el título dentro de la tarjeta especial también use el color de acento */
-.program-card-special-event .program-card-content h3.special-title {
-    color: var(--color-accent-darker);
-    font-size: 26px; /* Un poco más grande para el título especial */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: var(--color-white);
+    padding: 25px 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
     text-align: center;
+    max-width: 550px;
+    width: 90%;
+    position: relative;
+    border-top: 8px solid var(--color-accent);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 30px; /* Más grande */
+    color: var(--color-dark);
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+.close-btn:hover {
+    color: var(--color-secondary);
+}
+
+.announcement-image-modal {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px; /* Altura máxima para la imagen en el modal */
+    object-fit: contain; /* Ajustar sin cortar, manteniendo proporción */
+    margin-bottom: 15px;
+    border-radius: calc(var(--border-radius) / 2);
+    border: 3px solid var(--color-light);
+}
+
+.modal-title-main {
+    font-family: var(--font-secondary);
+    font-size: 18px;
+    color: var(--color-secondary);
+    margin-bottom: 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.modal-title-event {
+    font-family: var(--font-primary);
+    font-size: 28px;
+    color: var(--color-primary);
     margin-bottom: 15px;
 }
 
-.program-card-special-event .program-card-content .event-details p {
-    font-size: 16px; /* Ajustar tamaño de texto de detalles si es necesario */
-    line-height: 1.7;
+.modal-event-details p {
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 8px;
+    text-align: left; /* Mejor para leer detalles */
+}
+.modal-event-details p strong {
+    color: var(--color-primary);
+}
+
+#countdown-timer-container {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--color-light);
+}
+
+#countdown-timer-container h4 {
+    font-size: 16px;
+    color: var(--color-secondary);
     margin-bottom: 10px;
-    color: var(--text-color); /* Asegurar color de texto legible */
+    font-weight: 700;
 }
 
-.program-card-special-event .program-card-content .event-details p strong {
-    color: var(--color-primary); /* Resaltar partes importantes en los detalles */
+#countdown-timer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+    color: var(--text-color);
 }
 
-/* Efecto hover mejorado para la tarjeta especial */
-.program-card-special-event:hover {
-    transform: translateY(-10px) scale(1.03); /* Mayor elevación y escala */
-    box-shadow: 0 18px 45px rgba(29, 233, 182, 0.45);
-    border-left-color: var(--color-secondary); /* Cambiar color del borde al hacer hover */
-    border-top-color: var(--color-secondary);
-    border-right-color: var(--color-secondary);
-    border-bottom-color: var(--color-secondary);
+#countdown-timer div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: rgba(13, 71, 161, 0.05); /* Usando el color primario con opacidad */
+    border-radius: calc(var(--border-radius) / 2);
 }
 
-/* Opcional: Cinta "ESPECIAL" (Descomenta y ajusta si quieres usarla) */
-/*
-.program-card-special-event::after {
-    content: "INVITACIÓN";
-    position: absolute;
-    top: 20px;
-    right: -45px;
-    padding: 8px 40px;
-    background-color: var(--color-accent);
-    color: var(--color-dark);
-    font-weight: bold;
-    font-size: 13px;
-    text-align: center;
-    transform: rotate(45deg);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    z-index: 2;
-    letter-spacing: 0.5px;
+#countdown-timer span {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
 }
-*/
+
+/* Responsividad del Modal */
+@media (max-width: 600px) {
+    .modal-content {
+        padding: 20px;
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto; /* Para contenido largo en pantallas pequeñas */
+    }
+    .modal-title-event {
+        font-size: 24px;
+    }
+    .modal-event-details p {
+        font-size: 15px;
+    }
+    .announcement-image-modal {
+        max-height: 150px;
+    }
+    #countdown-timer {
+        flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si no caben */
+        gap: 5px;
+    }
+    #countdown-timer div {
+        padding: 5px;
+        min-width: 60px; /* Ancho mínimo para cada elemento del contador */
+    }
+    #countdown-timer span {
+        font-size: 20px;
+    }
+}
