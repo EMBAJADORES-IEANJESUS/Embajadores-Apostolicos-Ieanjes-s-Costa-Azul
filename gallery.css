@@ -1,23 +1,56 @@
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Minmax ajustado */
+    gap: 25px; /* Espaciado aumentado */
+    margin-top: 30px; /* Espaciado superior aumentado */
 }
 
 .gallery-item {
     overflow: hidden;
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-    transition: transform 0.3s ease;
+    border-radius: var(--border-radius); /* Usando variable global */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* Sombra mejorada */
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    position: relative; /* Para posibles superposiciones o pseudo-elementos */
+    border: 3px solid var(--color-white); /* Borde blanco sutil */
+    outline: 1px solid var(--color-light); /* Contorno muy sutil */
+}
+
+.gallery-item::before { /* Efecto de superposición sutil */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent, rgba(0,0,0,0.3));
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+    z-index: 1;
 }
 
 .gallery-item:hover {
-    transform: scale(1.05);
+    transform: scale(1.06) rotate(1deg); /* Efecto de escala y rotación más pronunciado */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Sombra más profunda al hover */
+    z-index: 2; /* Para que se superponga a otros elementos al hacer hover */
+}
+.gallery-item:hover::before {
+    opacity: 1; /* Mostrar superposición al hover */
 }
 
 .gallery-item img {
     width: 100%;
-    height: auto;
+    height: 250px; /* Altura fija para uniformidad, ajustar si es necesario */
+    object-fit: cover; /* Asegura que la imagen cubra sin distorsión */
     display: block;
+    transition: transform 0.5s ease-in-out; /* Transición más suave para el zoom */
 }
+
+.gallery-item:hover img {
+    transform: scale(1.15); /* Zoom más pronunciado en la imagen */
+}
+
+/* Corrección para cerrar el media query si había uno abierto o un bracket extra */
+/* Si tienes un @media query abierto al final de tu gallery.css original, asegúrate de cerrarlo. */
+/* Ejemplo: */
+/* @media (max-width: 480px) { ... } */
+/* Este es el final del archivo, no hay brackets extras en el original que proporcionaste. */
