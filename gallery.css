@@ -48,9 +48,3 @@
 .gallery-item:hover img {
     transform: scale(1.15); /* Zoom más pronunciado en la imagen */
 }
-
-/* Corrección para cerrar el media query si había uno abierto o un bracket extra */
-/* Si tienes un @media query abierto al final de tu gallery.css original, asegúrate de cerrarlo. */
-/* Ejemplo: */
-/* @media (max-width: 480px) { ... } */
-/* Este es el final del archivo, no hay brackets extras en el original que proporcionaste. */
