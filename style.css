@@ -1168,3 +1168,35 @@ body {
         font-size: 20px;
     }
 }
+/* Estilos para program-card que es un enlace a una galería */
+a.program-card-link {
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: inherit; /* Mantiene el color de texto original de la tarjeta */
+    display: block; /* Hace que el enlace ocupe todo el espacio de la tarjeta */
+    position: relative; /* Para posicionar elementos internos si es necesario */
+}
+
+/* Efecto hover para la tarjeta-enlace */
+a.program-card-link:hover .program-card {
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.20); /* Sombra más pronunciada */
+    border-bottom-color: var(--color-accent); /* Cambia el color del borde inferior al de acento */
+    transform: translateY(-10px) scale(1.03); /* Un poco más de elevación y escala */
+}
+
+/* Indicador "Ver Galería" dentro de la tarjeta */
+.view-gallery-indicator-inline {
+    display: inline-block;
+    margin-top: 15px; /* Espacio sobre el indicador */
+    padding: 8px 15px;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border-radius: var(--border-radius); /* Usar el radio de borde global */
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color var(--transition-speed) ease, transform 0.2s ease;
+}
+
+a.program-card-link:hover .view-gallery-indicator-inline {
+    background-color: var(--color-accent-darker); /* Cambia color al pasar el mouse sobre el enlace de la tarjeta */
+    transform: scale(1.05);
+}
