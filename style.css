@@ -366,7 +366,7 @@ body {
     margin-bottom: 25px; /* Espacio debajo del logo antes del .welcome-content */
 }
 .welcome-logo-ieanjesus {
-    max-height: 80px; /* Tamaño del logo de IeanJesus en bienvenida - Ajustado */
+    max-height: 150px; /* Tamaño del logo de IeanJesus en bienvenida - Ajustado */
     width: auto;
     display: inline-block; /* Para que respete el text-align: center */
 }
@@ -827,7 +827,7 @@ body {
 
 
 .footer-logo-ieanjesus {
-    max-height: 50px; /* Tamaño del logo de IeanJesus en footer - Ajustado */
+    max-height: 70px; /* Tamaño del logo de IeanJesus en footer - Ajustado */
     width: auto;
     vertical-align: middle; /* Para alineación si no está en un item flex directo */
 }
@@ -978,6 +978,12 @@ body {
     .welcome-image img { max-width: 250px; }
     .highlight-text { font-size: 19px; max-width: 95%;}
 
+    /* Ajuste para el logo de bienvenida en pantallas pequeñas */
+    .welcome-logo-ieanjesus {
+        max-height: 100px; /* Ligeramente más pequeño en móviles si es necesario */
+    }
+
+
     .objectives-grid { grid-template-columns: 1fr; gap: 25px; }
     .program-grid { grid-template-columns: 1fr; gap: 25px; }
     .video-grid { grid-template-columns: 1fr; gap: 25px; }
@@ -1005,6 +1011,9 @@ body {
     }
     .footer-copyright-text {
         text-align: center; /* Centrar texto de copyright en móviles */
+    }
+    .footer-logo-ieanjesus {
+        max-height: 60px; /* Ajuste del logo del footer en móviles si es necesario */
     }
 }
 
