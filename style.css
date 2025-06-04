@@ -17,6 +17,14 @@
     --transition-speed: 0.4s; /* Velocidad de transición estándar */
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-secondary);
     margin: 0;
@@ -533,17 +541,17 @@ body {
     border-bottom: 5px solid var(--color-accent); /* Borde inferior consistente pero con color de acento */
     box-shadow: 0 10px 35px rgba(29, 233, 182, 0.3); /* Sombra con el color de acento */
     background-color: #f8fdfb; /* Un fondo muy sutilmente diferente, casi blanco pero con un toque de verde */
-    position: relative; 
-    overflow: hidden; 
+    position: relative;
+    overflow: hidden;
 }
 .program-card-special-event .program-card-content h3.special-title {
     color: var(--color-accent-darker);
-    font-size: 26px; 
+    font-size: 26px;
     text-align: center;
     margin-bottom: 15px;
 }
 .program-card-special-event .program-card-content .event-details p {
-    font-size: 16px; 
+    font-size: 16px;
     line-height: 1.7;
     margin-bottom: 10px;
     color: var(--text-color);
@@ -554,7 +562,7 @@ body {
 .program-card-special-event:hover {
     transform: translateY(-10px) scale(1.03); /* Mayor elevación y escala */
     box-shadow: 0 18px 45px rgba(29, 233, 182, 0.45);
-    border-left-color: var(--color-secondary); 
+    border-left-color: var(--color-secondary);
     border-top-color: var(--color-secondary);
     border-right-color: var(--color-secondary);
     border-bottom-color: var(--color-secondary);
@@ -726,13 +734,13 @@ body {
 .miembro-perfil .palabras {
     font-size: 16px; /* Aumentado */
     color: #555;
-    font-style: normal; 
+    font-style: normal;
     line-height: 1.7;
 }
 .miembro-perfil .palabras p {
     margin-bottom: 12px;
 }
-.miembro-perfil .palabras p em { 
+.miembro-perfil .palabras p em {
     font-style: italic;
     color: var(--color-dark);
 }
@@ -805,21 +813,21 @@ body {
     margin-top: 30px;
     margin-bottom: 30px;
 }
-.social-media-contact > p { 
+.social-media-contact > p {
     font-size: 18px;
     margin-bottom: 25px;
     color: var(--text-color);
 }
 .social-links {
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    gap: 15px; 
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 .social-link-item {
     display: flex;
     align-items: center;
-    width: auto; 
+    width: auto;
     padding: 10px 15px;
     border-radius: var(--border-radius);
     transition: background-color var(--transition-speed) ease;
@@ -831,7 +839,7 @@ body {
     color: var(--color-secondary);
     text-decoration: none;
     font-weight: bold;
-    font-size: 17px; 
+    font-size: 17px;
     display: flex;
     align-items: center;
     transition: color var(--transition-speed) ease;
@@ -840,18 +848,18 @@ body {
     color: var(--color-accent-darker);
 }
 .social-icon {
-    width: 28px; 
+    width: 28px;
     height: 28px;
     margin-right: 12px;
     object-fit: contain;
-    filter: grayscale(30%); 
+    filter: grayscale(30%);
     transition: filter var(--transition-speed) ease;
 }
 .social-link-item:hover .social-icon {
-    filter: grayscale(0%); 
+    filter: grayscale(0%);
 }
-#contactar img[alt="Contacto EA"] { 
-    max-width: 180px; 
+#contactar img[alt="Contacto EA"] {
+    max-width: 180px;
     margin-top: 30px;
     opacity: 0.8;
     transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
@@ -864,21 +872,21 @@ body {
 
 @media (min-width: 768px) {
     .social-links {
-        display: grid; 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 20px 30px; 
-        max-width: 700px; 
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 30px;
+        max-width: 700px;
         margin-left: auto;
         margin-right: auto;
     }
     .social-link-item {
-        justify-content: flex-start; 
+        justify-content: flex-start;
     }
 }
 
 
 /* Responsividad General */
-@media (max-width: 992px) { 
+@media (max-width: 992px) {
     .hero-title { font-size: 48px; }
     .hero-subtitle { font-size: 20px; }
     .content-section h2 { font-size: 36px; }
@@ -899,11 +907,11 @@ body {
         justify-content: center;
     }
     .main-nav ul li {
-        margin: 8px 12px; 
+        margin: 8px 12px;
     }
     .main-nav ul li a { font-size: 16px; }
 
-    .hero-title { font-size: 38px; } 
+    .hero-title { font-size: 38px; }
     .hero-subtitle { font-size: 18px; }
     .hero-section { padding: 80px 0; }
 
@@ -920,7 +928,7 @@ body {
     .welcome-image img { max-width: 250px; }
     .highlight-text { font-size: 19px; max-width: 95%;}
 
-    .objectives-grid { grid-template-columns: 1fr; gap: 25px; } 
+    .objectives-grid { grid-template-columns: 1fr; gap: 25px; }
     .program-grid { grid-template-columns: 1fr; gap: 25px; }
     .video-grid { grid-template-columns: 1fr; gap: 25px; }
     .video-item iframe, .video-item video { min-height: 250px; }
@@ -930,12 +938,12 @@ body {
     .miembro-perfil .cargo { font-size: 16px; }
     .miembro-perfil .palabras { font-size: 15px; }
 
-    .cta-section .btn { margin: 10px 5px; display: block; } 
+    .cta-section .btn { margin: 10px 5px; display: block; }
 
     .faq-question { font-size: 17px; padding: 15px 20px;}
     .faq-answer p { font-size: 15px; }
 
-    .social-links { 
+    .social-links {
         width: 100%;
     }
     .social-link-item a { font-size: 16px;}
@@ -952,28 +960,28 @@ body {
     position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
-    opacity: 0.1; 
+    opacity: 0.1;
     z-index: 0;
     pointer-events: none;
     transition: transform var(--transition-speed) ease-out, opacity var(--transition-speed) ease-out;
 }
 .recuerdos-decorative-container:hover::before,
-.recuerdos-decorative-container:hover::after { 
+.recuerdos-decorative-container:hover::after {
     opacity: 0.18;
     transform: scale(1.1) rotate(3deg);
 }
 .recuerdos-decorative-container::before {
     background-image: url('logos_evento/Gavillas.png');
-    width: 100px; 
+    width: 100px;
     height: 100px;
-    bottom: 30px; 
+    bottom: 30px;
     right: 30px;
 }
 .recuerdos-decorative-container::after {
     background-image: url('logos_evento/fervientes.png');
-    width: 110px; 
+    width: 110px;
     height: 110px;
-    bottom: 30px; 
+    bottom: 30px;
     left: 30px;
     transform-origin: bottom left;
 }
@@ -987,7 +995,7 @@ body {
 @media (max-width: 768px) {
     .recuerdos-decorative-container::before,
     .recuerdos-decorative-container::after {
-        opacity: 0.08; 
+        opacity: 0.08;
     }
     .recuerdos-decorative-container::before {
         width: 80px; height: 80px; bottom: 20px; right: 20px;
@@ -999,7 +1007,7 @@ body {
 @media (max-width: 480px) {
     .recuerdos-decorative-container::before,
     .recuerdos-decorative-container::after {
-        width: 60px; 
+        width: 60px;
         height: 60px;
         bottom: 15px;
     }
@@ -1042,6 +1050,11 @@ body {
     border-top: 8px solid var(--color-accent);
     transform: scale(0.9);
     transition: transform 0.3s ease;
+    /* === MODIFICACIONES PARA CORREGIR DESBORDAMIENTO === */
+    max-height: 90vh; /* Altura máxima relativa al viewport */
+    overflow-y: auto;   /* Scroll vertical si el contenido es más alto */
+    display: flex;      /* Usar flexbox para la distribución interna */
+    flex-direction: column; /* Apilar elementos hijos verticalmente */
 }
 
 .modal-overlay.active .modal-content {
@@ -1066,13 +1079,16 @@ body {
 }
 
 .announcement-image-modal {
-    max-width: 100%;
-    height: auto;
+    max-width: 100%; /* Que no exceda el ancho del modal */
+    height: auto;    /* Mantener proporción */
     max-height: 200px; /* Altura máxima para la imagen en el modal */
     object-fit: contain; /* Ajustar sin cortar, manteniendo proporción */
     margin-bottom: 15px;
     border-radius: calc(var(--border-radius) / 2);
     border: 3px solid var(--color-light);
+    /* === NUEVAS PROPIEDADES PARA FLEXBOX INTERNO DEL MODAL === */
+    align-self: center; /* Centrar la imagen si es más estrecha que el modal */
+    flex-shrink: 0; /* Evitar que la imagen se encoja si el texto es largo */
 }
 
 .modal-title-main {
@@ -1139,13 +1155,13 @@ body {
     line-height: 1;
 }
 
-/* Responsividad del Modal */
+/* Responsividad del Modal (ya existente, se mantiene y complementa con los cambios en .modal-content base) */
 @media (max-width: 600px) {
-    .modal-content {
+    .modal-content { /* Estas reglas se fusionarán con las añadidas arriba, o las pueden sobreescribir si es necesario */
         padding: 20px;
         width: 95%;
-        max-height: 90vh;
-        overflow-y: auto; /* Para contenido largo en pantallas pequeñas */
+        /* max-height: 90vh; ya está en la base */
+        /* overflow-y: auto; ya está en la base */
     }
     .modal-title-event {
         font-size: 24px;
@@ -1154,7 +1170,7 @@ body {
         font-size: 15px;
     }
     .announcement-image-modal {
-        max-height: 150px;
+        max-height: 150px; /* Ajuste específico para móviles si es necesario */
     }
     #countdown-timer {
         flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si no caben */
