@@ -366,7 +366,7 @@ body {
     margin-bottom: 25px; /* Espacio debajo del logo antes del .welcome-content */
 }
 .welcome-logo-ieanjesus {
-    max-height: 70px; /* Ajusta según el tamaño deseado */
+    max-height: 80px; /* Tamaño del logo de IeanJesus en bienvenida - Ajustado */
     width: auto;
     display: inline-block; /* Para que respete el text-align: center */
 }
@@ -827,7 +827,7 @@ body {
 
 
 .footer-logo-ieanjesus {
-    max-height: 40px; /* Tamaño del logo de IeanJesus */
+    max-height: 50px; /* Tamaño del logo de IeanJesus en footer - Ajustado */
     width: auto;
     vertical-align: middle; /* Para alineación si no está en un item flex directo */
 }
