@@ -360,6 +360,18 @@ body {
     box-shadow: 0 15px 45px rgba(0,0,0,0.15);
 }
 
+/* Estilos para el logo de IeanJesus en la sección de bienvenida (index.html) */
+.ieanjesus-logo-welcome-wrapper {
+    text-align: center; /* Centra el logo si es inline-block */
+    margin-bottom: 25px; /* Espacio debajo del logo antes del .welcome-content */
+}
+.welcome-logo-ieanjesus {
+    max-height: 70px; /* Ajusta según el tamaño deseado */
+    width: auto;
+    display: inline-block; /* Para que respete el text-align: center */
+}
+
+
 /* Quienes Somos */
 .highlight-text {
     font-size: 22px; /* Aumentado */
@@ -776,19 +788,57 @@ body {
 .main-footer {
     background-color: var(--color-dark);
     color: rgba(255,255,255,0.8); /* Blanco con ligera transparencia */
-    padding: 50px 0; /* Padding aumentado */
+    padding: 40px 0; /* Padding ajustado */
     text-align: center;
     font-size: 15px; /* Aumentado */
     border-top: 5px solid var(--color-primary);
 }
-.main-footer p {
-    margin: 8px 0;
+
+.main-footer .container { /* Contenedor principal del footer */
+    /* No necesita flex aquí si los elementos hijos se manejan por separado o con .footer-content-wrapper */
 }
-.main-footer p:last-child { /* Para el lema */
+
+.footer-content-wrapper { /* Contenedor para el copyright y el logo de IeanJesus */
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    gap: 10px 20px; /* Espacio entre filas y columnas (si envuelve) */
+    margin-bottom: 10px; /* Espacio antes del lema, si existe */
+}
+
+.main-footer p { /* Estilo general para párrafos en el footer */
+    margin: 5px 0; /* Margen reducido para mejor ajuste con flex */
+}
+
+.footer-copyright-text { /* Clase específica para el texto de copyright */
+    margin: 0; /* El gap de flex se encarga del espaciado */
+    flex-grow: 1; /* Permite que el texto ocupe espacio disponible */
+    text-align: center; /* Asegura centrado si el texto es más corto que el espacio */
+}
+@media (min-width: 768px) {
+    .footer-copyright-text {
+        text-align: left; /* Alinea a la izquierda en pantallas más grandes si se prefiere junto al logo */
+    }
+     .footer-content-wrapper {
+        justify-content: space-between; /* Para separar texto y logo en extremos en pantallas más grandes */
+    }
+}
+
+
+.footer-logo-ieanjesus {
+    max-height: 40px; /* Tamaño del logo de IeanJesus */
+    width: auto;
+    vertical-align: middle; /* Para alineación si no está en un item flex directo */
+}
+
+.footer-motto { /* Estilo para el lema en index.html */
     font-family: var(--font-primary);
     font-size: 18px;
     color: var(--color-accent); /* Lema con color de acento */
-    margin-top: 15px;
+    margin-top: 15px; /* Espacio sobre el lema */
+    width: 100%; /* Asegura que ocupe todo el ancho para centrarse */
+    text-align: center;
 }
 
 
@@ -948,6 +998,14 @@ body {
     }
     .social-link-item a { font-size: 16px;}
     .social-icon { width: 24px; height: 24px; }
+
+    .footer-content-wrapper { /* En pantallas pequeñas, apilar texto y logo */
+        flex-direction: column;
+        gap: 10px; /* Espacio entre texto y logo cuando están apilados */
+    }
+    .footer-copyright-text {
+        text-align: center; /* Centrar texto de copyright en móviles */
+    }
 }
 
 /* --- Estilos para Logos Decorativos Complementarios en Sección Recuerdos --- */
