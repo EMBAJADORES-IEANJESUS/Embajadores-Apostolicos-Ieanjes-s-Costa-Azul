@@ -720,17 +720,17 @@ body {
     background-color: var(--color-white);
     padding: 25px;
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     border-left: 5px solid var(--color-primary);
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-top-color var(--transition-speed) ease;
-    display: flex; 
-    flex-direction: column; 
-    border-top: 4px solid transparent; 
-    position: relative; 
-    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    border-top: 4px solid transparent;
+    position: relative;
+    overflow: hidden;
 }
 
-.miembro-perfil::before { 
+.miembro-perfil::before {
     content: "";
     position: absolute;
     top: 0;
@@ -744,32 +744,32 @@ body {
 }
 
 .miembro-perfil:hover {
-    transform: translateY(-8px) scale(1.03); 
-    box-shadow: 0 12px 20px rgba(0,0,0,0.15), 0 0 15px rgba(var(--color-accent-rgb), 0.3); 
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15), 0 0 15px rgba(var(--color-accent-rgb), 0.3);
     border-left-color: var(--color-secondary);
-    border-top-color: var(--color-accent); 
+    border-top-color: var(--color-accent);
 }
 .miembro-perfil:hover::before {
     opacity: 1;
 }
 
-.miembro-perfil > * { 
+.miembro-perfil > * {
     position: relative;
     z-index: 1;
 }
 
-.miembro-perfil h3 { 
+.miembro-perfil h3 {
     font-family: var(--font-primary);
-    font-size: 22px; 
+    font-size: 22px;
     color: var(--color-secondary);
     margin-top: 0;
     margin-bottom: 8px;
     text-align: center;
 }
-.miembro-perfil .cargo { 
-    font-size: 16px; 
+.miembro-perfil .cargo {
+    font-size: 16px;
     color: var(--color-dark);
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
     font-weight: 700;
     text-align: center;
     border-bottom: 1px solid var(--color-light);
@@ -780,21 +780,21 @@ body {
 }
 
 .miembro-perfil .palabras {
-    font-size: 15px; 
-    color: #333; 
+    font-size: 15px;
+    color: #333;
     line-height: 1.6;
-    margin-top: auto; 
-    padding-top: 15px; 
-    min-height: 100px; 
+    margin-top: auto;
+    padding-top: 15px;
+    min-height: 100px;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     text-align: center; /* Centrar texto de versículos */
 }
 .miembro-perfil .palabras p.scripture-text {
     font-style: italic;
     margin-bottom: 8px;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 .miembro-perfil .palabras footer.scripture-ref {
     text-align: right;
@@ -970,10 +970,10 @@ body {
     .video-grid { grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); }
 }
 
-@media (min-width: 600px) and (max-width: 1199.98px) { 
+@media (min-width: 600px) and (max-width: 1199.98px) {
     .comite-miembros {
         /* Permitir 2 o 3 columnas dependiendo del ancho disponible */
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 }
 
@@ -981,32 +981,53 @@ body {
 @media (min-width: 1200px) { /* Para desktops, 4 columnas */
     .comite-miembros {
         grid-template-columns: repeat(4, 1fr);
-        gap: 20px; 
+        gap: 20px;
     }
     .miembro-perfil {
-        padding: 20px; 
+        padding: 20px;
     }
-    .miembro-perfil h3 { font-size: 20px; } 
+    .miembro-perfil h3 { font-size: 20px; }
     .miembro-perfil .cargo { font-size: 15px; }
     .miembro-perfil .palabras { font-size: 14px; min-height: 150px; } /* Aumentar min-height para versículos */
 }
 
+/* === SECCIÓN MÓVIL ACTUALIZADA === */
 @media (max-width: 768px) {
+    .main-header {
+        padding: 10px 0; /* Reducir el padding general del header */
+    }
     .main-header .container {
         flex-direction: column;
         align-items: center;
     }
-    .logo-container { margin-bottom: 15px; }
+    .logo-container {
+        margin-bottom: 10px; /* Reducir el margen inferior del contenedor del logo */
+    }
+    .logo-img {
+        height: 45px; /* Hacer el logo un poco más pequeño */
+        margin-right: 10px;
+    }
+    .logo-text {
+        font-size: 22px; /* Reducir el tamaño del texto del logo */
+    }
     .main-nav ul {
-        margin-top: 10px;
+        margin-top: 5px; /* Reducir el margen superior de la lista de navegación */
         flex-wrap: wrap;
         justify-content: center;
+        padding-left: 0; /* Eliminar padding que algunos navegadores añaden por defecto a ul */
     }
     .main-nav ul li {
-        margin: 8px 12px;
+        margin: 4px 8px; /* Reducir significativamente el margen de cada elemento de la lista */
     }
-    .main-nav ul li a { font-size: 16px; }
+    .main-nav ul li a {
+        font-size: 14px; /* Reducir el tamaño de la fuente de los enlaces */
+        padding-bottom: 4px; /* Reducir el padding inferior para la línea decorativa */
+    }
+    .main-nav ul li a::after {
+        height: 2px; /* Hacer la línea decorativa un poco más delgada si es necesario */
+    }
 
+    /* --- El resto de tus estilos móviles existentes se mantienen --- */
     .hero-title { font-size: 38px; }
     .hero-subtitle { font-size: 18px; }
     .hero-section { padding: 80px 0; }
@@ -1026,9 +1047,8 @@ body {
 
     /* Ajuste para el logo de bienvenida en pantallas pequeñas */
     .welcome-logo-ieanjesus {
-        max-height: 150px; 
+        max-height: 150px;
     }
-
 
     .objectives-grid { grid-template-columns: 1fr; gap: 25px; }
     .program-grid { grid-template-columns: 1fr; gap: 25px; }
@@ -1036,7 +1056,6 @@ body {
     .video-item iframe, .video-item video { min-height: 250px; }
 
     /* Comité miembros en móviles: ya es 1 columna por defecto para .comite-miembros */
-    /* .comite-miembros { grid-template-columns: 1fr; gap: 25px; } */
     .miembro-perfil h3 { font-size: 22px; }
     .miembro-perfil .cargo { font-size: 16px; }
     .miembro-perfil .palabras { font-size: 15px; min-height: 120px; }
@@ -1063,6 +1082,8 @@ body {
         max-height: 80px; /* Ajuste del logo del footer en móviles */
     }
 }
+/* === FIN DE SECCIÓN MÓVIL ACTUALIZADA === */
+
 
 /* --- Estilos para Logos Decorativos Complementarios en Sección Recuerdos --- */
 .recuerdos-decorative-container {
@@ -1106,7 +1127,7 @@ body {
 }
 
 /* --- Ajustes Responsivos para Logos Decorativos Complementarios (Recuerdos) --- */
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* Este bloque ya existe, los cambios de encabezado se añaden arriba */
     .recuerdos-decorative-container::before,
     .recuerdos-decorative-container::after {
         opacity: 0.08;
