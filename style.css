@@ -3,8 +3,10 @@
     --font-primary: 'Playfair Display', serif;
     --font-secondary: 'Montserrat', sans-serif;
     --color-primary: #0D47A1; /* Azul Oscuro Profundo */
+    --color-primary-rgb: 13, 71, 161; /* RGB para color primario */
     --color-secondary: #FF6F00; /* Naranja Ámbar Vibrante */
     --color-accent: #1DE9B6; /* Verde Menta Brillante */
+    --color-accent-rgb: 29, 233, 182; /* RGB para color de acento */
     --color-accent-darker: #00BFA5; /* Un tono más oscuro del acento para hovers */
     --color-dark: #263238; /* Gris Azulado Oscuro (texto principal) */
     --color-light: #ECEFF1; /* Gris Muy Claro (fondos alternos) */
@@ -121,7 +123,7 @@ body {
 /* Hero Section */
 .hero-section {
     background-image:
-        linear-gradient(to right bottom, rgba(13, 71, 161, 0.75), rgba(25, 118, 210, 0.75)), /* Degradado más dinámico */
+        linear-gradient(to right bottom, rgba(var(--color-primary-rgb), 0.75), rgba(25, 118, 210, 0.75)), /* Degradado más dinámico */
         url('imagenes_recuerdos/1.jpg');
     background-size: cover;
     background-position: center center;
@@ -183,7 +185,7 @@ body {
 .recuerdos-bg {
     background-image:
         url('logos_evento/mes.png'),
-        linear-gradient(to right bottom, rgba(29, 233, 182, 0.8), rgba(0, 191, 165, 0.9)); /* Usando color de acento */
+        linear-gradient(to right bottom, rgba(var(--color-accent-rgb), 0.8), rgba(0, 191, 165, 0.9)); /* Usando color de acento */
     background-size: 280px auto, cover; /* Logo más grande */
     background-position: center 70%, center center; /* Ajuste de posición */
     background-repeat: no-repeat, no-repeat;
@@ -211,7 +213,7 @@ body {
     width: 100%;
     height: 100%;
     /* Usando colores primario y secundario con más opacidad para el degradado */
-    background: linear-gradient(45deg, rgba(13, 71, 161, 0.75), rgba(255, 111, 0, 0.6));
+    background: linear-gradient(45deg, rgba(var(--color-primary-rgb), 0.75), rgba(255, 111, 0, 0.6));
     z-index: 2;
 }
 .page-title-section .container {
@@ -220,9 +222,9 @@ body {
 }
 
 /* Fondos sutiles para secciones */
-.welcome-bg { background: linear-gradient(to bottom, var(--color-white), rgba(29, 233, 182, 0.08)); } /* Degradado sutil de acento */
-.objectives-bg { background: linear-gradient(to bottom, var(--color-white), rgba(13, 71, 161, 0.05)); } /* Degradado sutil primario */
-.bg-light-accent { background-color: rgba(29, 233, 182, 0.1); } /* Nuevo fondo claro con acento */
+.welcome-bg { background: linear-gradient(to bottom, var(--color-white), rgba(var(--color-accent-rgb), 0.08)); } /* Degradado sutil de acento */
+.objectives-bg { background: linear-gradient(to bottom, var(--color-white), rgba(var(--color-primary-rgb), 0.05)); } /* Degradado sutil primario */
+.bg-light-accent { background-color: rgba(var(--color-accent-rgb), 0.1); } /* Nuevo fondo claro con acento */
 
 /* Botones */
 .btn {
@@ -259,7 +261,7 @@ body {
     background-color: #0B3A80;
     border-color: #0B3A80;
     transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 6px 20px rgba(13,71,161,0.5);
+    box-shadow: 0 6px 20px rgba(var(--color-primary-rgb),0.5);
 }
 .btn-accent { /* Nuevo botón con color de acento */
     background-color: var(--color-accent);
@@ -271,7 +273,7 @@ body {
     border-color: var(--color-accent-darker);
     color: var(--color-white);
     transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 6px 20px rgba(29, 233, 182, 0.5);
+    box-shadow: 0 6px 20px rgba(var(--color-accent-rgb), 0.5);
 }
 .btn-outline {
     background-color: transparent;
@@ -551,7 +553,7 @@ body {
     border-top: 2px solid var(--color-accent-darker);
     border-right: 2px solid var(--color-accent-darker);
     border-bottom: 5px solid var(--color-accent); /* Borde inferior consistente pero con color de acento */
-    box-shadow: 0 10px 35px rgba(29, 233, 182, 0.3); /* Sombra con el color de acento */
+    box-shadow: 0 10px 35px rgba(var(--color-accent-rgb), 0.3); /* Sombra con el color de acento */
     background-color: #f8fdfb; /* Un fondo muy sutilmente diferente, casi blanco pero con un toque de verde */
     position: relative;
     overflow: hidden;
@@ -573,7 +575,7 @@ body {
 }
 .program-card-special-event:hover {
     transform: translateY(-10px) scale(1.03); /* Mayor elevación y escala */
-    box-shadow: 0 18px 45px rgba(29, 233, 182, 0.45);
+    box-shadow: 0 18px 45px rgba(var(--color-accent-rgb), 0.45);
     border-left-color: var(--color-secondary);
     border-top-color: var(--color-secondary);
     border-right-color: var(--color-secondary);
@@ -706,83 +708,106 @@ body {
     border: 5px solid var(--color-white); /* Borde blanco para destacar */
     outline: 2px solid var(--color-accent); /* Contorno de acento */
 }
+
 .comite-miembros {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Minmax ajustado */
-    gap: 35px; /* Espaciado aumentado */
+    grid-template-columns: 1fr; /* Base para móviles: 1 columna */
+    gap: 30px;
     text-align: left;
 }
+
 .miembro-perfil {
     background-color: var(--color-white);
-    padding: 25px; /* Padding aumentado */
+    padding: 25px;
     border-radius: var(--border-radius);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
     border-left: 5px solid var(--color-primary);
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-top-color var(--transition-speed) ease;
+    display: flex; 
+    flex-direction: column; 
+    border-top: 4px solid transparent; 
+    position: relative; 
+    overflow: hidden; 
 }
+
+.miembro-perfil::before { 
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 50%);
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+    z-index: 0;
+}
+
 .miembro-perfil:hover {
-    transform: translateY(-5px) scale(1.01);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    transform: translateY(-8px) scale(1.03); 
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15), 0 0 15px rgba(var(--color-accent-rgb), 0.3); 
     border-left-color: var(--color-secondary);
+    border-top-color: var(--color-accent); 
 }
-.miembro-perfil h3 {
+.miembro-perfil:hover::before {
+    opacity: 1;
+}
+
+.miembro-perfil > * { 
+    position: relative;
+    z-index: 1;
+}
+
+.miembro-perfil h3 { 
     font-family: var(--font-primary);
-    font-size: 24px; /* Aumentado */
+    font-size: 22px; 
     color: var(--color-secondary);
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     text-align: center;
 }
-.miembro-perfil .cargo {
-    font-size: 17px; /* Aumentado */
+.miembro-perfil .cargo { 
+    font-size: 16px; 
     color: var(--color-dark);
-    margin-bottom: 15px; /* Espaciado aumentado */
+    margin-bottom: 20px; 
     font-weight: 700;
     text-align: center;
+    border-bottom: 1px solid var(--color-light);
+    padding-bottom: 10px;
 }
 .miembro-perfil .cargo strong {
     color: var(--color-primary);
 }
+
 .miembro-perfil .palabras {
-    font-size: 16px; /* Aumentado */
-    color: #555;
-    font-style: normal;
-    line-height: 1.7;
+    font-size: 15px; 
+    color: #333; 
+    line-height: 1.6;
+    margin-top: auto; 
+    padding-top: 15px; 
+    min-height: 100px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    text-align: center; /* Centrar texto de versículos */
 }
-.miembro-perfil .palabras p {
-    margin-bottom: 12px;
-}
-.miembro-perfil .palabras p em {
-    font-style: italic;
-    color: var(--color-dark);
-}
-.miembro-perfil .palabras p:last-child {
-    margin-bottom: 0;
-}
-.miembro-perfil .palabras blockquote.scripture-quote {
-    margin: 20px 0px; /* Espaciado aumentado */
-    padding: 15px 20px; /* Padding aumentado */
-    background-color: rgba(13, 71, 161,0.05); /* Usando RGB del primario */
-    border-left: 4px solid var(--color-accent);
-    color: var(--text-color);
-    font-style: normal;
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
-}
-.miembro-perfil .palabras blockquote.scripture-quote p {
+.miembro-perfil .palabras p.scripture-text {
     font-style: italic;
     margin-bottom: 8px;
-    font-size: 15px;
+    flex-grow: 1; 
 }
-.miembro-perfil .palabras blockquote.scripture-quote footer {
+.miembro-perfil .palabras footer.scripture-ref {
     text-align: right;
     font-size: 0.9em;
-    color: #666;
+    color: var(--color-primary);
     font-style: normal;
+    font-weight: bold;
     margin-top: 8px;
 }
-.miembro-perfil .palabras blockquote.scripture-quote footer cite {
+.miembro-perfil .palabras footer.scripture-ref cite {
     font-style: normal;
 }
+
 
 /* Footer */
 .main-footer {
@@ -945,6 +970,27 @@ body {
     .video-grid { grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); }
 }
 
+@media (min-width: 600px) and (max-width: 1199.98px) { 
+    .comite-miembros {
+        /* Permitir 2 o 3 columnas dependiendo del ancho disponible */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    }
+}
+
+
+@media (min-width: 1200px) { /* Para desktops, 4 columnas */
+    .comite-miembros {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px; 
+    }
+    .miembro-perfil {
+        padding: 20px; 
+    }
+    .miembro-perfil h3 { font-size: 20px; } 
+    .miembro-perfil .cargo { font-size: 15px; }
+    .miembro-perfil .palabras { font-size: 14px; min-height: 150px; } /* Aumentar min-height para versículos */
+}
+
 @media (max-width: 768px) {
     .main-header .container {
         flex-direction: column;
@@ -980,7 +1026,7 @@ body {
 
     /* Ajuste para el logo de bienvenida en pantallas pequeñas */
     .welcome-logo-ieanjesus {
-        max-height: 150px; /* Su tamaño anterior de escritorio, aun grande para móviles */
+        max-height: 150px; 
     }
 
 
@@ -989,10 +1035,11 @@ body {
     .video-grid { grid-template-columns: 1fr; gap: 25px; }
     .video-item iframe, .video-item video { min-height: 250px; }
 
-    .comite-miembros { grid-template-columns: 1fr; gap: 25px; }
+    /* Comité miembros en móviles: ya es 1 columna por defecto para .comite-miembros */
+    /* .comite-miembros { grid-template-columns: 1fr; gap: 25px; } */
     .miembro-perfil h3 { font-size: 22px; }
     .miembro-perfil .cargo { font-size: 16px; }
-    .miembro-perfil .palabras { font-size: 15px; }
+    .miembro-perfil .palabras { font-size: 15px; min-height: 120px; }
 
     .cta-section .btn { margin: 10px 5px; display: block; }
 
@@ -1088,6 +1135,10 @@ body {
     .footer-logo-ieanjesus {
         max-height: 60px; /* Reducir un poco más el del footer */
     }
+     .comite-miembros {
+        grid-template-columns: 1fr; /* Asegurar una columna en pantallas muy pequeñas */
+    }
+     .miembro-perfil .palabras { min-height: 100px; } /* Ajustar min-height si es necesario */
 }
 
 /* Estilos para el Modal de Anuncio de Evento */
@@ -1219,7 +1270,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 5px 10px;
-    background-color: rgba(13, 71, 161, 0.05); /* Usando el color primario con opacidad */
+    background-color: rgba(var(--color-primary-rgb), 0.05); /* Usando el color primario con opacidad */
     border-radius: calc(var(--border-radius) / 2);
 }
 
